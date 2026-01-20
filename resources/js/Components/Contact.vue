@@ -1,0 +1,51 @@
+<template>
+    <div>
+
+        <!-- Contact Information Area -->
+        <div class="contact-information-area pt-100 pb-70">
+            <div class="container">
+                <div class="contact-information-max">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-4 col-6">
+                            <div class="contact-info-card">
+                                <i class="flaticon-email"></i>
+                                <h3>Send Email</h3>
+                                <p><a href="/cdn-cgi/l/email-protection#99f0f7fff6d9f7f8f6f7b7faf6f4"><span class="__cf_email__" data-cfemail="254c4b434a654b444a4b0b464a48">[email&#160;protected]</span></a></p>
+                                <p><a href="/cdn-cgi/l/email-protection#9bf3fef7f7f4dbf5faf4f5b5f8f4f6"><span class="__cf_email__" data-cfemail="741c1118181b341a151b1a5a171b19">[email&#160;protected]</span></a></p>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-6">
+                            <div class="contact-info-card">
+                                <i class="flaticon-telephone"></i>
+                                <h3>Call Center</h3>
+                                <p><a href="tel:(+01)1233215789">(+01) 123 321 5789</a></p>
+                                <p><a href="tel:(+01)1234226779">(+01) 123 422 6779</a></p>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-6">
+                            <div class="contact-info-card">
+                                <i class="flaticon-pin"></i>
+                                <h3>Visit Anytime</h3>
+                                <p> 6688 Princess Road, London, </p>
+                                <p>Greater London BAS 23JK, UK</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Contact Information Area -->
+
+
+    </div>
+</template>
+
+<script>
+
+</script>
+
+<style  scoped>
+
+</style>
