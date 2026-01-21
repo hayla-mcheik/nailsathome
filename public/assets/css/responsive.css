@@ -2941,7 +2941,7 @@
     padding: 30px;
   }
   .pricing-card ul li {
-    padding: 0 0 0 100px;
+    padding: 0 0 0 10px !important;
   }
   .pricing-card ul li img {
     position: absolute;

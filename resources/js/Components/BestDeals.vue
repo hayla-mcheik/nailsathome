@@ -10,7 +10,6 @@
                     <div class="pricing-card">
                         <ul>
                             <li v-for="pkg in group" :key="pkg.id">
-                                <img :src="pkg.image ? '/storage/' + pkg.image : '/assets/images/pricing/pricing-img1.jpg'" alt="Pricing" />
                                 <div class="content">
                                     <h3>{{ pkg.name }} <span>${{ pkg.price }}</span></h3>
                                     <p>{{ pkg.description }}</p>
@@ -43,3 +42,8 @@ const chunkedPackages = computed(() => {
     ];
 });
 </script>
+<style scoped>
+      .pricing-card ul li {
+    padding: 0 0 0 10px !important;
+  }
+</style>

@@ -1,47 +1,58 @@
 <template>
-    <section :class="['spa-experience ptb-100', themeColor]">
-        <div class="container-fluid p-0">
-            <div class="row g-0">
-                <div class="col-lg-4 sidebar-panel">
-                    <div class="sticky-top" style="top: 100px;">
-                        <h2 class="script-title mb-4">{{ sideTitle }}</h2>
-                        <div class="philosophy-text">
-                  
-                            <p class="font-bold text-dark">After all, you deserve only the best!</p>
+    <section :class="['spa-experience py-24 position-relative overflow-hidden', themeColor]">
+        
+        <div class="section-watermark">
+            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M50 10C55 40 90 50 90 50C70 55 55 60 50 90C45 60 30 55 10 50C30 50 45 40 50 10Z" stroke="#e1b39d" stroke-width="0.2" opacity="0.15" />
+            </svg>
+        </div>
+
+        <div class="container position-relative z-index-10">
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <div class="sidebar-sticky sticky-top" style="top: 120px;">
+                        <span class="eyebrow-lux">Luxury Selection</span>
+                        <h2 class="script-title mt-2 mb-4">{{ sideTitle }}</h2>
+                        <div class="lux-line mb-4"></div>
+                        <div class="philosophy-content">
+                            <p class="manifesto-p">After all, you deserve only the best!</p>
                         </div>
-                        <div class="lux-line"></div>
                     </div>
                 </div>
 
-                <div class="col-lg-8 content-panel pt-4">
-           
+                <div class="col-lg-8">
+                    <div class="menu-header mb-12">
+                        <h2 class="font-serif text-5xl mb-3">{{ sectionTitle || 'Our Services' }}</h2>
+                        <div class="d-flex align-items-center gap-3">
+                            <span class="tax-tag">5% VAT Applicable</span>
+                            <div class="flex-grow-1 border-bottom-dotted"></div>
+                        </div>
+                    </div>
 
                     <div class="row g-5">
                         <div v-for="item in services" :key="item.id" class="col-md-6">
-                            <div class="treatment-item mb-4">
+                            <div class="editorial-treatment-item h-100">
                                 <div class="d-flex justify-content-between align-items-baseline mb-2">
-                                    <h3 class="text-xl font-bold text-dark m-0">
-                                        {{ item.title }} 
-                                        <small v-if="item.duration" class="fw-normal text-dark opacity-75">
-                                            ({{ item.duration }})
-                                        </small>
+                                    <h3 class="item-title font-serif m-0">
+                                        {{ item.title }}
                                     </h3>
-                                    <span class="price-tag text-xl font-bold text-dark">
-                                        ${{ item.price }}
-                                    </span>
+                                    <span class="dotted-spacer"></span>
+                                    <span class="item-price">AED {{ item.price }}</span>
                                 </div>
-                                <p class="text-sm text-dark opacity-90 leading-relaxed mb-2">
+                                
+                                <div class="item-meta mb-2" v-if="item.duration">
+                                    <span class="duration-badge">{{ item.duration }}</span>
+                                </div>
+
+                                <p class="item-desc">
                                     {{ item.description }}
                                 </p>
-                                <p v-if="item.advance_booking" class="text-xs text-dark italic opacity-75">
-                                    (Please book in advance if you require this treatment)
-                                </p>
+
+                                <div v-if="item.advance_booking" class="booking-tag mt-3">
+                                    <i class="ri-information-line"></i> Advance Booking Required
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    
-                    <div class="mt-4 opacity-50 text-xs italic">
-                        5% VAT Applicable
                     </div>
                 </div>
             </div>
@@ -53,7 +64,7 @@
 defineProps({
     themeColor: {
         type: String,
-        default: 'theme-default'
+        default: 'theme-white'
     },
     sideTitle: String,
     sectionTitle: String,
@@ -62,60 +73,121 @@ defineProps({
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Playfair+Display:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Playfair+Display:ital,wght@0,700;1,400&family=Inter:wght@300;400;700&display=swap');
 
-/* Base Theme */
-.theme-default, .theme-brown, .theme-orange {
-    background-color: #faefed !important;
-    color: #000;
-}
+/* Dynamic Themes */
+.theme-white { background-color: #fff; }
+.theme-default, .theme-brown, .theme-orange { background-color: #fffaf8; }
 
 .spa-experience {
-    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
+    color: #1a1a1a;
 }
 
 /* Typography */
 .script-title {
     font-family: 'Dancing Script', cursive;
-    font-size: 2rem;
-    color: #000;
+    font-size: 3rem;
+    line-height: 1;
 }
 
 .font-serif {
     font-family: 'Playfair Display', serif;
 }
 
-/* Layout Elements */
-.sidebar-panel {
-    border-right: 1px solid rgba(0, 0, 0, 0.05);
+.eyebrow-lux {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-weight: 700;
+    color: #e1b39d;
 }
 
+.manifesto-p {
+    font-size: 1.1rem;
+    font-weight: 600;
+    font-style: italic;
+    color: #1a1a1a;
+}
+
+/* Layout Decor */
 .lux-line {
-    width: 60px;
+    width: 40px;
     height: 1px;
-    background: #e59e6d;
-    margin-top: 30px;
+    background: #e1b39d;
 }
 
-.treatment-item {
-    border-left: 1px solid rgba(229, 158, 109, 0.4);
-    padding-left: 1.5rem;
-    transition: border-color 0.3s ease;
+.section-watermark {
+    position: absolute;
+    top: 50%;
+    left: -5%;
+    width: 30%;
+    pointer-events: none;
+    z-index: 1;
 }
 
-.treatment-item:hover {
-    border-left-color: #e59e6d;
+/* Service Item Styling */
+.item-title {
+    font-size: 1.3rem;
+    color: #1a1a1a;
 }
 
-.price-tag {
+.dotted-spacer {
+    flex-grow: 1;
+    border-bottom: 1px dotted #ccc;
+    margin: 0 10px;
+    position: relative;
+    top: -5px;
+}
+
+.item-price {
+    font-weight: 700;
+    font-size: 1.1rem;
     white-space: nowrap;
-    margin-left: 10px;
 }
+
+.duration-badge {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #e1b39d;
+    letter-spacing: 1px;
+}
+
+.item-desc {
+    font-size: 0.85rem;
+    line-height: 1.7;
+    color: #666;
+    font-weight: 300;
+}
+
+.booking-tag {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #e1b39d;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.tax-tag {
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #999;
+}
+
+.border-bottom-dotted {
+    border-bottom: 1px dotted rgba(0,0,0,0.1);
+}
+
+.z-index-10 { z-index: 10; }
 
 @media (max-width: 991px) {
-    .sidebar-panel {
-        border-right: none;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    }
+    .sidebar-sticky { position: static; margin-bottom: 60px; }
+    .text-5xl { font-size: 2.5rem; }
+    .script-title { font-size: 2.5rem; }
 }
 </style>
+
