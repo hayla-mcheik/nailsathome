@@ -44,7 +44,6 @@
                                     <div class="col-6 p-4">
                                         <div class="dropdown-header-text">Body & Care</div>
                                         <Link :href="route('leavemesoft')" class="dropdown-item"><i class="ri-magic-line"></i> Leave Me Soft</Link>
-                                        <Link :href="route('cantsayenough')" class="dropdown-item"><i class="ri-chat-smile-2-line"></i> Can't Say Enough</Link>
                                         <Link :href="route('turnbacktime')" class="dropdown-item"><i class="ri-hourglass-2-fill"></i> Turn Back Time</Link>
                                         <Link :href="route('hairathome')" class="dropdown-item"><i class="ri-scissors-2-fill"></i> Hair At Home</Link>
                                     </div>
@@ -98,7 +97,6 @@
                                 <Link :href="route('spoilyourfeet')" class="m-sub-link" @click="isMobileMenuOpen = false">Spoil Your Feet</Link>
                                 <Link :href="route('gorgeousnails')" class="m-sub-link" @click="isMobileMenuOpen = false">Gorgeous Nails</Link>
                                 <Link :href="route('leavemesoft')" class="m-sub-link" @click="isMobileMenuOpen = false">Leave Me Soft</Link>
-                                <Link :href="route('cantsayenough')" class="m-sub-link" @click="isMobileMenuOpen = false">Can't Say Enough</Link>
                                 <Link :href="route('whatyouknead')" class="m-sub-link" @click="isMobileMenuOpen = false">What You Knead</Link>
                                 <Link :href="route('turnbacktime')" class="m-sub-link" @click="isMobileMenuOpen = false">Turn Back Time</Link>
                                 <Link :href="route('hairathome')" class="m-sub-link" @click="isMobileMenuOpen = false">Hair At Home</Link>
@@ -133,7 +131,7 @@ const handleScroll = () => { isSticky.value = window.scrollY > 50; };
 
 const page = usePage();
 const isServiceActive = computed(() => {
-    const urls = ['/treatyourself', '/spoilyourfeet', '/gorgeousnails', '/leavemesoft', '/cantsayenough', '/whatyouknead', '/turnbacktime', '/hairathome'];
+    const urls = ['/treatyourself', '/spoilyourfeet', '/gorgeousnails', '/leavemesoft', '/whatyouknead', '/turnbacktime', '/hairathome'];
     return urls.some(url => page.url.startsWith(url));
 });
 
