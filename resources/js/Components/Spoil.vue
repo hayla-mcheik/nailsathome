@@ -76,7 +76,9 @@
     font-weight: 700;
     color: #e1b39d;
 }
-
+.section-watermark{
+    display: none !important;
+}
 .philosophy-text {
     font-family: 'Inter', sans-serif;
     font-size: 0.95rem;

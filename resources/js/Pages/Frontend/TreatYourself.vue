@@ -23,4 +23,7 @@ const props = defineProps({
 /* Gold Theme for Hair */
 .gold { background-color: #faefed; color: #000; }
 .gold .heading-font { color: #faefed; }
+.section-watermark{
+    display: none !important;
+}
 </style>

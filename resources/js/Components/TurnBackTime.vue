@@ -143,6 +143,9 @@
     .philosophy-sticky { position: static; margin-bottom: 50px; }
     .text-5xl { font-size: 2.5rem; }
 }
+.section-watermark{
+    display: none !important;
+}
 </style>
 <script setup>
 import { Link } from '@inertiajs/vue3';

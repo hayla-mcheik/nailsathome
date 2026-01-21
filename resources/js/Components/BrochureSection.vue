@@ -189,5 +189,8 @@ defineProps({
     .text-5xl { font-size: 2.5rem; }
     .script-title { font-size: 2.5rem; }
 }
+.section-watermark{
+    display: none !important;
+}
 </style>
 

@@ -73,7 +73,9 @@
 .font-serif {
     font-family: 'Playfair Display', serif;
 }
-
+.section-watermark{
+    display: none !important;
+}
 .eyebrow-lux {
     font-family: 'Inter', sans-serif;
     font-size: 0.7rem;

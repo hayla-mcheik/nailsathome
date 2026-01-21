@@ -216,6 +216,9 @@
     .text-6xl { font-size: 3rem; }
     .sticky-top { position: static !important; margin-bottom: 40px; }
 }
+.section-watermark{
+    display: none !important;
+}
 </style>
 
 <script setup>

@@ -13,7 +13,7 @@
         </div>
 
         <div class="container position-relative z-index-10">
-            <div class="row mb-32 align-items-center">
+            <div class="row mb-5 align-items-center">
                 <div class="col-lg-6">
                     <h2 class="hero-title">Signature <br><span class="italic-text">Collection</span></h2>
                 </div>
