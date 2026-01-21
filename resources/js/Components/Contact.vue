@@ -45,5 +45,9 @@
 </script>
 
 <style  scoped>
+.inner-banner {
+    background-color: #e1b39d !important;
+}
+
 
 </style>
