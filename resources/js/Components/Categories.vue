@@ -1,7 +1,7 @@
 <template>
-    <div class="couture-root py-24 position-relative overflow-hidden">
+    <div class="couture-root pt-24  pb-2 position-relative overflow-hidden">
         
-        <div class="art-background">
+        <div class="art-background pt-5">
             <div class="floating-text-bg">Polish It</div>
             <svg class="botanical-svg leaf-1" viewBox="0 0 100 100" fill="none">
                 <path d="M10 80C30 80 80 60 90 10M10 80C40 70 80 40 90 10" stroke="#e1b39d" stroke-width="0.3" opacity="0.4"/>
@@ -29,7 +29,7 @@ comfortable couch, and prepare to be pampered!
                 </div>
             </div>
 
-            <div v-for="(category, index) in categories" :key="category.id" class="editorial-category mb-40">
+            <div v-for="(category, index) in categories" :key="category.id" class="editorial-category mb-1">
                 <div class="row">
                     <div class="col-md-1 d-none d-md-block">
                         <span class="vertical-num">{{ String(index + 1).padStart(2, '0') }}</span>
