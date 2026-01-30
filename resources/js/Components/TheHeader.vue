@@ -20,7 +20,7 @@
                             <Link :href="route('home')" class="nav-link nav-link-grow" :class="{active: $page.url === '/'}">Home</Link>
                         </li>
                         <li class="nav-item">
-                            <Link :href="route('about')" class="nav-link nav-link-grow" :class="{active: $page.url.startsWith('/about')}">About Us</Link>
+                            <Link :href="route('about')" class="nav-link nav-link-grow" :class="{active: $page.url.startsWith('/about')}">About</Link>
                         </li>
 
                         <li class="nav-item">
@@ -55,7 +55,7 @@
                             <Link :href="route('policy')" class="nav-link nav-link-grow" :class="{active: $page.url === '/policy'}">Policy</Link>
                         </li>
                         <li class="nav-item">
-                            <Link :href="route('contact')" class="nav-link nav-link-grow" :class="{active: $page.url === '/contact'}">Contact Us</Link>
+                            <Link :href="route('contact')" class="nav-link nav-link-grow" :class="{active: $page.url === '/contact'}">Contact</Link>
                         </li>
                     </ul>
                     
@@ -82,7 +82,7 @@
             <div class="sidebar-body px-4 pb-5">
                 <nav class="mobile-nav-list">
                     <Link :href="route('home')" class="m-nav-link" @click="isMobileMenuOpen = false">Home</Link>
-                    <Link :href="route('about')" class="m-nav-link" @click="isMobileMenuOpen = false">About Us</Link>
+                    <Link :href="route('about')" class="m-nav-link" @click="isMobileMenuOpen = false">About</Link>
                     
                     <Link :href="route('transportationfees')" class="m-nav-link" @click="isMobileMenuOpen = false">Transportation</Link>
                     
@@ -105,7 +105,7 @@
                     </div>
 
                     <Link :href="route('policy')" class="m-nav-link" @click="isMobileMenuOpen = false">Policy</Link>
-                    <Link :href="route('contact')" class="m-nav-link" @click="isMobileMenuOpen = false">Contact Us</Link>
+                    <Link :href="route('contact')" class="m-nav-link" @click="isMobileMenuOpen = false">Contact</Link>
                 </nav>
 
                 <div class="mobile-sidebar-footer mt-5">
