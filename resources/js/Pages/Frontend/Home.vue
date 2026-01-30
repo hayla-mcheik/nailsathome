@@ -5,8 +5,6 @@
         <About :about="about" :images="aboutImages" />
         <SpecialOccasion :specialocsasion="specialocsasion" />
          <BestDeals :packages="packages" />
-            <VideoSection />
- 
       
         <Testimonials :testimonials="testimonials" />
         <InstagramGallery :gallery="gallery" />

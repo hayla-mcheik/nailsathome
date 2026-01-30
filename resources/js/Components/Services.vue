@@ -2,7 +2,7 @@
     <div class="services-area ptb-100">
         <div class="container">
             <div class="section-title mb-45 text-center">
-                <h2 class="font-serif text-5xl mt-2">Special Occasions</h2>
+                <h2 class="font-serif text-5xl mt-2">SERVICES Details</h2>
                 <div class="section-vector mt-3">
                     <img src="/assets/images/shape/section-vector.png" alt="vector" class="mx-auto" />
                 </div>

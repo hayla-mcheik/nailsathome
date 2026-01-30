@@ -146,10 +146,10 @@ watch(() => page.url, () => {
 
 <style scoped>
 /* DESKTOP STYLES */
-.navbar-area { position: relative; z-index: 9999; transition: 0.4s; padding: 15px 0; }
+.navbar-area { position: relative; z-index: 9999; transition: 0.4s; padding: 0px 0; }
 .sticky { position: fixed; top: 0; left: 0; width: 100%; background: #fff; box-shadow: 0 10px 30px rgba(0,0,0,0.05); padding: 5px 0; }
 .main-logo { width: 90px; }
-.nav-link-grow { font-weight: 600; color: #333 !important; padding: 25px 15px !important; position: relative; display: block; }
+.nav-link-grow { font-weight: 400; color: #333 !important; padding: 25px 15px !important; position: relative; display: block; }
 .nav-link-grow::after { content: ''; position: absolute; width: 0; height: 2px; bottom: 15px; left: 15px; background: #b95c19; transition: 0.3s; }
 .nav-link-grow.active::after, .nav-link-grow:hover::after { width: calc(100% - 30px); }
 .others-options{
@@ -196,5 +196,8 @@ watch(() => page.url, () => {
 .slide-fade-enter-from, .slide-fade-leave-to { max-height: 0; opacity: 0; }
 .mobile-sidebar-wrapper.active .sidebar-content{
     overflow: scroll;
+}
+.nav-link{
+    text-transform: uppercase;
 }
 </style>
