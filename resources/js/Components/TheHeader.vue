@@ -29,7 +29,7 @@
                         
                         <li class="nav-item custom-dropdown">
                             <a href="javascript:void(0)" class="nav-link nav-link-grow" :class="{active: isServiceActive}">
-                                Services <i class="ri-arrow-down-s-line"></i>
+                                Minimalist & Luxury <i class="ri-arrow-down-s-line"></i>
                             </a>
                             
                             <div class="mega-menu-container shadow-lg">
@@ -88,7 +88,7 @@
                     
                     <div class="mobile-dropdown-section">
                         <div class="m-dropdown-trigger d-flex justify-content-between align-items-center" @click="toggleDropdown">
-                            <span>Our Services</span>
+                            <span>Minimalist & Luxury</span>
                             <i class="ri-arrow-down-s-line arrow-icon" :class="{ 'rotate': isDropdownOpen }"></i>
                         </div>
                         <transition name="slide-fade">
