@@ -45,9 +45,6 @@
 </script>
 
 <style  scoped>
-.inner-banner {
-    background-color: #e1b39d !important;
-}
 
   .contact-info-card h3 {
     font-size: 0.8rem;

@@ -7,7 +7,7 @@
     />   
     </div>
 
-        <section class="transportation-wrap pb-24 pt-5 bg-[#fffaf8] text-[#1a1a1a] overflow-hidden">
+        <section class="transportation-wrap pb-24 pt-5 text-[#1a1a1a] overflow-hidden">
             <div class="transport-watermark">
                 <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M50 10C55 40 90 50 90 50C70 55 55 60 50 90C45 60 30 55 10 50C30 50 45 40 50 10Z" stroke="#e1b39d" stroke-width="0.1" opacity="0.3" />
