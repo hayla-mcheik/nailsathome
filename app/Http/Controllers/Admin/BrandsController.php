@@ -64,7 +64,7 @@ class BrandsController extends Controller
     public function destroy(Brands $brands)
     {
         $brands->delete();
-        return redirect()->route('admin.branbds.index')
+        return redirect()->route('admin.brands.index')
             ->with('success', 'Brands deleted successfully.');
     }
 }
