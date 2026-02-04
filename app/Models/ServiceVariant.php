@@ -12,7 +12,8 @@ class ServiceVariant extends Model
         'duration',
         'price',
         'price_secondary',
-        'unit'
+        'unit',
+        'description'
     ];
 
     public function service()

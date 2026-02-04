@@ -42,4 +42,8 @@ defineProps({ gallery: Array });
     overflow: hidden;
     margin-bottom: 15px;
 }
+.follow-area h3{
+    font-size: 0.8rem;
+    font-weight: 700;
+}
 </style>

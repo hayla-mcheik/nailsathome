@@ -1,13 +1,16 @@
 <template>
     <GuestLayout>
         <Banner :sliders="sliders" />
+        <About id="about-section" :about="about" :images="aboutImages" />
+        
+
+
         <Categories :categories="categories" />
-        <About :about="about" :images="aboutImages" />
+             <VipDiscretion />
+            <Testimonials :testimonials="testimonials" />
+       
         <SpecialOccasion :specialocsasion="specialocsasion" />
-         <BestDeals :packages="packages" />
-      
-        <Testimonials :testimonials="testimonials" />
-        <InstagramGallery :gallery="gallery" />
+        <!-- <InstagramGallery :gallery="gallery" /> -->
     </GuestLayout>
 </template>
 
@@ -21,6 +24,7 @@ import SpecialOccasion from '@/Components/SpecialOccasion.vue';
 import Testimonials from '@/Components/Testimonials.vue';
 import VideoSection from '@/Components/VideoSection.vue';
 import GuestLayout from '@/Layouts/GuestLayout.vue';
+import VipDiscretion from './VipDiscretion.vue';
 
 // Define the props coming from the Controller
 const props = defineProps({

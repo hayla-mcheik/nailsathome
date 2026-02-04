@@ -53,6 +53,20 @@ import NavLink from './NavLink.vue'
       >
         Testimonials
       </NavLink>
+            <NavLink
+        :href="route('admin.brands.index')"
+        icon="💬"
+        :active="route().current('admin.brands.*')"
+      >
+        Brands
+      </NavLink>
+            <NavLink
+        :href="route('admin.faq.index')"
+        icon="💬"
+        :active="route().current('admin.faq.*')"
+      >
+        FAQ
+      </NavLink>
 
       <div class="pt-5 pb-2 px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">
         Business Management
@@ -89,35 +103,7 @@ import NavLink from './NavLink.vue'
       >
         Transportation
       </NavLink>
-      <NavLink
-        :href="route('admin.hair-at-home.index')"
-        icon="💇‍♀️"
-        :active="route().current('admin.hair-at-home.*')"
-      >
-        Hair At Home
-      </NavLink>
-      <NavLink
-    :href="route('admin.spa-treatments.index')"
-    icon="✨"
-    :active="route().current('admin.spa-treatments.*')"
->
-    Spa Experiences
-</NavLink>
-     <NavLink
-    :href="route('admin.spoil-yourfeet.index')"
-    icon="✨"
-    :active="route().current('admin.spoil-yourfeet.*')"
->
-    Spoil Your Feet
-</NavLink>
-
-     <NavLink
-    :href="route('admin.turnbacktime.index')"
-    icon="✨"
-    :active="route().current('admin.turnbacktime.*')"
->
-   Turn Back Time
-</NavLink>
+ 
 
      <NavLink
     :href="route('admin.special-occasions.index')"

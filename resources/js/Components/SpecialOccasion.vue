@@ -1,36 +1,29 @@
 <template>
-    <div class="services-area brochure-bg ptb-100 position-relative overflow-hidden">
-        <div class="about-icon-wrap">
-            <svg class="about-watermark" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M50 10C55 40 90 50 90 50C70 55 55 60 50 90C45 60 30 55 10 50C30 50 45 40 50 10Z" stroke="#e1b39d" stroke-width="0.3" opacity="0.15" />
+    <div class="special-occasions-root pt-5 pb-24 position-relative overflow-hidden bg-white">
+        <div class="watermark-layer">
+            <svg class="watermark-svg" viewBox="0 0 100 100" fill="none">
+                <path d="M50 10C55 40 90 50 90 50C70 55 55 60 50 90C45 60 30 55 10 50C30 50 45 40 50 10Z" stroke="#b95c19" stroke-width="0.1" opacity="0.1" />
             </svg>
         </div>
 
-        <div class="container position-relative z-index-2">
-            <div class="section-title mb-5 text-center">
-                <span class="eyebrow-text">Curated Experiences</span>
-                <h2 class="font-serif text-5xl mt-2">Special Occasions</h2>
-                <div class="lux-divider mx-auto"></div>
+        <div class="container-fluid px-lg-5 position-relative z-2">
+            <div class="section-header text-center mb-12">
+                <h2 class="display-title mt-2">Special Occasions</h2>
             </div>
 
             <div class="row g-4 justify-content-center">
-                <div v-for="service in specialocsasion" :key="service.id" class="col-lg-4 col-md-6">
-                    <div class="editorial-service-card h-100">
-                        <div class="card-body-lux p-5 text-center d-flex flex-column h-100">
-                            <div class="card-icon mb-4">
-                                <i class="ri-star-line text-[#e1b39d] text-3xl"></i>
-                            </div>
-
-                            <h3 class="font-serif service-title mb-3">{{ service.title }}</h3>
+                <div v-for="(service, index) in specialocsasion" :key="service.id" class="col-lg-4 col-md-6">
+                    <div class="occasion-card">
+                        <div class="card-inner p-5 text-center d-flex flex-column h-100">
+                            <span class="occ-index">/ 0{{ index + 1 }}</span>
                             
-                            <div class="service-meta-description mb-4">
+                            <h3 class="occ-title mb-3">{{ service.title }}</h3>
+                            
+                            <div class="occ-description">
                                 {{ service.description }}
                             </div>
 
-                            <div class="mt-auto">
-                                <div class="minimal-accent-line mx-auto mb-3"></div>
-                                <span class="lux-tag">Signature Service</span>
-                            </div>
+                    
                         </div>
                     </div>
                 </div>
@@ -39,99 +32,99 @@
     </div>
 </template>
 
-
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Inter:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Montserrat:wght@300;400;600;700&display=swap');
 
-.brochure-bg {
-    background-color: #fffaf8;
-    font-family: 'Inter', sans-serif;
-}
 
-.font-serif { font-family: 'Playfair Display', serif; }
-
-.eyebrow-text {
-    display: block;
-    color: #e1b39d;
-    text-transform: uppercase;
-    letter-spacing: 4px;
+/* Header Styling */
+.eyebrow {
+    font-size: 0.7rem;
     font-weight: 700;
-    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: #b95c19;
 }
 
-.lux-divider {
-    width: 50px;
-    height: 2px;
-    background-color: #e1b39d;
-    margin-top: 20px;
+.display-title {
+    font-size: 26px;
+    text-transform: uppercase;
+    color: #51555A;
+    font-weight: 700;
 }
 
-/* New Editorial Card Design */
-.editorial-service-card {
-    background: #fff;
-    border: 1px solid rgba(225, 179, 157, 0.2);
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-    position: relative;
-}
-
-.editorial-service-card:hover {
-    transform: translateY(-8px);
-    border-color: #e1b39d;
-    box-shadow: 0 20px 40px rgba(225, 179, 157, 0.1);
-}
-
-.service-title {
-    font-size: 1.75rem;
-    color: #1a1a1a;
-    line-height: 1.2;
-}
-
-.service-meta-description {
-    font-size: 1rem;
-    color: #666;
-    line-height: 1.7;
-    font-weight: 300;
-}
-
-.minimal-accent-line {
-    width: 30px;
+.lux-accent-line {
+    width: 35px;
     height: 1px;
-    background-color: #e1b39d;
+    background-color: #b95c19;
 }
 
-.lux-tag {
-    font-size: 0.65rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: #999;
+/* Card Styling - Small & Elegant */
+.occasion-card {
+    background: #ffffff;
+    border: 1px solid #f2f2f2; /* Ultra thin border */
+    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    height: 100%;
+}
+
+.occasion-card:hover {
+    border-color: #b95c19;
+    transform: translateY(-5px);
+}
+
+.occ-index {
+    font-size: 0.6rem;
     font-weight: 700;
+    color: #b95c19;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.occ-title {
+    font-size: 0.7rem; /* Small scale for luxury */
+    color: #51555A;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.occ-description {
+    font-size: 0.7rem; /* Matches boutique brochure body */
+    color: #51555A;
+    font-weight: 400;
+}
+
+.occ-link {
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #b95c19;
+    opacity: 0.8;
 }
 
 /* Background Art */
-.about-icon-wrap {
+.watermark-layer {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 40%;
+    width: 30%;
     pointer-events: none;
+    opacity: 0.4;
 }
 
-.about-watermark {
+.watermark-svg {
     width: 100%;
-    animation: slowRotate 50s linear infinite;
+    animation: pulse 10s ease-in-out infinite;
 }
 
-@keyframes slowRotate {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.3; }
+    50% { transform: scale(1.1); opacity: 0.5; }
 }
 
-.z-index-2 { z-index: 2; }
+.z-2 { z-index: 2; }
 
 @media (max-width: 991px) {
-    .text-5xl { font-size: 2.5rem; }
-    .p-5 { padding: 30px !important; }
+    .display-title { font-size: 1.1rem; font-weight: 700; }
+    .occ-description { font-size: 0.7rem; }
 }
 </style>
 

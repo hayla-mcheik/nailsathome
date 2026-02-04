@@ -1,32 +1,18 @@
 <template>
         <GuestLayout>
 
-            <!-- Inner Banner -->
-        <div class="inner-banner">
-            <div class="container-fluid">
-                <div class="row align-items-center">
-                    <div class="col-lg-7 col-md-7">
-                        <div class="inner-title">
-                            <h3>Contact Us</h3>
-                            <ul>
-                                <li>
-                                 <Link href="/">Home</Link>
-                                </li>
-                                <li>Contact</li>
-                            </ul>
-                        </div>
-                    </div>
-
-            
-                </div>
-            </div>
-        </div>
-        <!-- Inner Banner End -->
+ <div class="inner-banner-minimal pt-100 mt-3 pb-50">   
+               <Breadcrumbs
+      title="Contact" 
+      height="50vh" 
+    />   
+    </div>
          <Contact />
      </GuestLayout>
 </template>
 
 <script setup>
+import Breadcrumbs from '@/Components/Breadcrumbs.vue';
 import Contact from '@/Components/Contact.vue';
 import GuestLayout from '@/Layouts/GuestLayout.vue';
 import { Link } from '@inertiajs/vue3';

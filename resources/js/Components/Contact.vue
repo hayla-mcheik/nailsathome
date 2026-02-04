@@ -49,5 +49,10 @@
     background-color: #e1b39d !important;
 }
 
-
+  .contact-info-card h3 {
+    font-size: 0.8rem;
+  }
+  .contact-info-card span , .contact-info-card p a , .contact-info-card p{
+    font-size: 0.7rem;
+  }
 </style>

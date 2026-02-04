@@ -1,24 +1,25 @@
 <template>
-    <div class="couture-root pt-24 pb-5 position-relative overflow-hidden">
+    <div class="couture-root py-5 position-relative overflow-hidden">
         
         <div class="art-background pt-5">
-            <div class="floating-text-bg">Polish It</div>
+            <!-- <div class="floating-text-bg">Polish It</div> -->
             <svg class="botanical-svg leaf-1" viewBox="0 0 100 100" fill="none">
                 <path d="M10 80C30 80 80 60 90 10M10 80C40 70 80 40 90 10" stroke="#e1b39d" stroke-width="0.3" opacity="0.4"/>
             </svg>
         </div>
 
-        <div class="container position-relative z-index-10">
+        <div class="container-fluid position-relative z-index-10">
             <div class="row mb-5 align-items-center">
                 <div class="col-lg-6">
-                    <h2 class="hero-title">Signature <br><span class="italic-text">Collections</span></h2>
+                    <h2 class="hero-title">Our services</h2>
+                       
                 </div>
-                <div class="col-lg-5 offset-lg-1">
+                <!-- <div class="col-lg-5 offset-lg-1">
                     <div class="header-manifesto">
-                        <p>Explore our curated collections of beauty and wellness. Select a category to discover our full range of premium services delivered to your door.</p>
+                        <p>prepare to be pampered</p>
                         <div class="horizontal-bar"></div>
                     </div>
-                </div>
+                </div> -->
             </div>
 
             <div class="row g-4 g-lg-5">
@@ -26,17 +27,14 @@
                     <Link  :href="route('category.services', category.id)" class="category-card-link">
                         <div class="category-card">
                             <div class="category-image-box">
-                                <span class="cat-num">{{ String(index + 1).padStart(2, '0') }}</span>
+                              
                                 
                                 <img :src="category.image ? `/storage/${category.image}` : '/assets/images/placeholder-cat.jpg'" 
                                      :alt="category.name" 
                                      class="category-img">
                                 
                                 <div class="category-overlay">
-                                    <div class="overlay-content">
-                                        <span>View Menu</span>
-                                        <i class="ri-arrow-right-line"></i>
-                                    </div>
+                           
                                 </div>
                             </div>
                             
@@ -65,12 +63,14 @@ defineProps({ categories: Array });
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=Outfit:wght@200;400;700&display=swap');
 
 .couture-root {
-    background-color: #fffaf8; 
-    color: #1a1a1a;
-    font-family: 'Outfit', sans-serif;
+    background-color: #fbfbfb; 
+    color: #51555A;
     min-height: 100vh;
 }
-
+.hero-title{
+    color: #51555A;
+    font-size: 26px;
+}
 .art-background {
     position: absolute;
     inset: 0;
@@ -95,10 +95,9 @@ defineProps({ categories: Array });
 .leaf-1 { top: 10%; right: -5%; transform: rotate(-10deg); }
 
 .hero-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(3rem, 6vw, 5rem);
     line-height: 1;
-    font-weight: 900;
+    font-weight: 700;
+    text-transform: capitalize;
 }
 .italic-text {
     font-style: italic;
@@ -149,7 +148,7 @@ defineProps({ categories: Array });
     justify-content: center;
     opacity: 0;
     transition: opacity 0.4s ease;
-    backdrop-filter: blur(2px);
+
 }
 
 .overlay-content {
@@ -167,11 +166,12 @@ defineProps({ categories: Array });
 
 .category-title-font {
     font-family: 'Playfair Display', serif;
-    font-size: 2rem;
+    font-size:0.75rem;
     font-weight: 700;
     margin-bottom: 8px;
     text-transform: uppercase;
     letter-spacing: 1px;
+    color: #e1b39d;
 }
 
 .explore-row {
@@ -183,16 +183,16 @@ defineProps({ categories: Array });
 }
 
 .service-count {
-    font-size: 0.8rem;
+    font-size: 0.65rem;
     color: #888;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
 .explore-btn {
-    color: #e1b39d;
-    font-weight: 700;
-    font-size: 0.75rem;
+    color: #888;
+    font-weight: 400;
+    font-size: 0.65rem;
     text-transform: uppercase;
     letter-spacing: 2px;
 }
@@ -215,8 +215,8 @@ defineProps({ categories: Array });
 }
 
 @media (max-width: 991px) {
-    .hero-title { font-size: 2.5rem; }
-    .category-title-font { font-size: 1.5rem; }
+    .hero-title { font-size: 1.1rem; }
+    .category-title-font { font-size: 0.7rem; }
     .category-image-box { aspect-ratio: 1 / 1; }
 }
 </style>

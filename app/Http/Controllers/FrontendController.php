@@ -58,6 +58,20 @@ public function spoilyourfeet()
     ]);
 }
 
+public function brands()
+{
+    return Inertia::render('Frontend/Brands',[
+    'brands' => \App\Models\Brands::all(), 
+    ]);
+}
+
+public function faq()
+{
+    return Inertia::render('Frontend/Faq',[
+    'faq' => \App\Models\FAQ::all(),
+    ]);
+}
+
 
 public function cantsayenough()
 {
@@ -113,10 +127,9 @@ public function policy()
 
     public function services()
     {
+
         return Inertia::render('Frontend/Services', [
-            'categories' => Category::with(['services.variants'])
-                ->orderBy('sort_order')
-                ->get()
+         'categories' => Category::with('services.variants')->orderBy('sort_order')->get(),
         ]);
     }
 

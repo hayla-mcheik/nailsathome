@@ -1,8 +1,7 @@
 <template>
     <div class="testimonial-area section-bg pt-100 pb-70">
-        <div class="container">
+        <div class="container-fluid">
             <div class="section-title mb-45 text-center">
-                <span>Our Testimonial</span>
                 <h2>What Our Clients Feedback</h2>
             </div>
 
@@ -26,11 +25,7 @@
                     </div>
                     <h3>{{ item.client_name }}</h3>
                     <p>{{ item.feedback }}</p>
-                    <div class="rating">
-                        <i v-for="star in 5" :key="star" 
-                           :class="star <= item.rating ? 'ri-star-fill' : 'ri-star-line'">
-                        </i>
-                    </div>
+          
                 </swiper-slide>
             </swiper>
         </div>
@@ -46,3 +41,14 @@ import 'swiper/css/pagination';
 const modules = [Autoplay, Pagination];
 defineProps({ testimonials: Array });
 </script>
+<style scoped>
+.testimonial-item h3{
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #51555A;
+}
+.testimonial-item p{
+    font-size: 0.7rem;
+    
+}
+</style>

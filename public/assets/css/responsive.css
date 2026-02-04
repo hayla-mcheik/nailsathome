@@ -64,7 +64,7 @@
     font-size: 14px;
   }
   .section-title h2 {
-    font-size: 28px;
+    font-size: 1.1rem;
   }
   .section-title p {
     padding-top: 10px;
@@ -1326,7 +1326,10 @@
     margin: 0 auto 15px;
   }
   .contact-info-card h3 {
-    font-size: 20px;
+    font-size: 0.8rem;
+  }
+  .contact-info-card span , .contact-info-card p a , .contact-info-card p{
+    font-size: 0.7rem;
   }
   .contact-form .agree-label label a.forget {
     position: inherit;

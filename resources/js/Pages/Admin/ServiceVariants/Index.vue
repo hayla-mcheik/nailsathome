@@ -6,6 +6,7 @@ const props = defineProps({ service: Object, variants: Array });
 
 const form = useForm({
     title: '',
+    description:'',
     duration: '',
     price: '',
     price_secondary: '',
@@ -64,8 +65,10 @@ const deleteVariant = (id) => {
                     <tbody class="divide-y">
                         <tr v-for="v in variants" :key="v.id">
                             <td class="px-6 py-4 font-medium">{{ v.title }}</td>
+                  
                             <td class="px-6 py-4 text-sm">{{ v.duration }} {{ v.unit }}</td>
                             <td class="px-6 py-4 font-bold text-gray-900">${{ v.price }}</td>
+                                      <td class="px-6 py-4 font-medium">{{ v.description }}</td>
                             <td class="px-6 py-4 text-right">
                                 <button @click="deleteVariant(v.id)" class="text-red-600">Delete</button>
                             </td>

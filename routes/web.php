@@ -30,7 +30,9 @@ use App\Http\Controllers\Admin\TransportationFeeController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\AboutImageController;
+use App\Http\Controllers\Admin\BrandsController;
 use App\Http\Controllers\Admin\BrochureServiceController;
+use App\Http\Controllers\Admin\FAQController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\HairAtHomeController;
@@ -59,6 +61,8 @@ Route::controller(FrontendController::class)->group(function () {
     Route::get('/whatyouknead', 'whatyouknead')->name('whatyouknead');
     Route::get('/turnbacktime', 'turnbacktime')->name('turnbacktime');
     Route::get('/hairathome', 'hairathome')->name('hairathome');
+    Route::get('/brands', 'brands')->name('brands');
+    Route::get('/faq', 'faq')->name('faq');
     Route::get('/policy', 'policy')->name('policy');
     Route::get('/transportationfees', 'transportationfees')->name('transportationfees');
     Route::get('/contact', 'contact')->name('contact');
@@ -105,6 +109,8 @@ Route::middleware(['auth', 'verified'])
 
         // Core Resources
         Route::resource('categories', CategoryController::class);
+        Route::resource('brands', BrandsController::class);
+        Route::resource('faq', FAQController::class);
         Route::resource('services', AdminServiceController::class);
         Route::resource('packages', AdminPackageController::class);
 

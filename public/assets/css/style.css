@@ -50,8 +50,8 @@ Default CSS
   --headerFonts: "Playfair Display", serif;
   --bodyFonts: "Rubik", sans-serif;
   --mainColor: #b95c19;
-  --titleColor: #202031;
-  --bodyColor: #555555;
+  --titleColor: #51555A;
+  --bodyColor: #51555A;
   --whiteColor: #ffffff;
   --fontSize: 16px;
   --transition: 0.5s;
@@ -279,7 +279,7 @@ img {
   margin-bottom: 7px;
 }
 .section-title h2 {
-  font-size: 45px;
+  font-size: 26px;
   margin-top: 0;
   line-height: 1.2;
   margin-bottom: 0;
@@ -304,8 +304,15 @@ img {
   text-align: center;
 }
 
+.section-title h2{
+      font-size: 26px;
+    font-weight: 700;
+    color: #51555A;
+    text-transform: capitalize;
+}
+
 .section-bg {
-  background-color: #FAEFED;
+  background-color: #fbfbfb;
 }
 
 .color1 {
@@ -6002,7 +6009,7 @@ Contact Area
   margin-bottom: 30px;
   padding: 40px 30px;
   text-align: center;
-  background-color: #FAEFED;
+  background-color: #fbfbfb;
 }
 .contact-info-card i {
   width: 80px;

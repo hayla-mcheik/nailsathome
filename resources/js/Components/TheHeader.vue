@@ -1,203 +1,220 @@
 <template>
-    <div class="navbar-area" :class="{ 'sticky': isSticky }">
-        <div class="container">
-            <nav class="navbar navbar-expand-lg navbar-light p-0 d-flex justify-content-between align-items-center">
-                <Link class="navbar-brand" :href="route('home')">
-                    <img src="/assets/images/logo.png" alt="Logo" class="main-logo">
-                </Link>
-
-                <div class="mobile-toggle-wrapper d-lg-none">
-                    <button class="menu-toggler" @click="isMobileMenuOpen = true">
-                        <span class="bar"></span>
-                        <span class="bar shadow-bar"></span>
-                        <span class="bar"></span>
+    <div class="navbar-area" :class="{ 'sticky': isSticky, 'at-top': !isSticky }">
+        <div class="container-fluid px-lg-5">
+            <nav class="navbar navbar-expand-lg p-2 bg-white d-flex align-items-center justify-content-between">
+                
+                <div class="header-left flex-1">
+                    <button class="menu-btn-desktop" @click="isMenuOpen = true">
+                        <div class="burger-icon">
+                            <span class="line line-1"></span>
+                            <span class="line line-2"></span>
+                            <span class="line line-3"></span>
+                        </div>
+                        <span class="menu-text">MENU</span>
                     </button>
                 </div>
 
-                <div class="collapse navbar-collapse d-none d-lg-block">
-                    <ul class="navbar-nav m-auto">
-                        <li class="nav-item">
-                            <Link :href="route('home')" class="nav-link nav-link-grow" :class="{active: $page.url === '/'}">Home</Link>
-                        </li>
-                        <li class="nav-item">
-                            <Link :href="route('about')" class="nav-link nav-link-grow" :class="{active: $page.url.startsWith('/about')}">About</Link>
-                        </li>
+                <div class="header-center flex-1 text-center">
+                    <Link :href="route('home')">
+                        <img src="/assets/images/logo.png" alt="Logo" class="main-logo" :class="{ 'logo-white': !isSticky }">
+                    </Link>
+                </div>
 
-                        <li class="nav-item">
-                            <Link :href="route('transportationfees')" class="nav-link nav-link-grow" :class="{active: $page.url === '/transportationfees'}">Transportation</Link>
-                        </li>
-                        
-                        <li class="nav-item custom-dropdown">
-                            <a href="javascript:void(0)" class="nav-link nav-link-grow" :class="{active: isServiceActive}">
-                                Minimalist & Luxury <i class="ri-arrow-down-s-line"></i>
-                            </a>
-                            
-                            <div class="mega-menu-container shadow-lg">
-                                <div class="row g-0">
-                                    <div class="col-6 border-end p-4">
-                                        <div class="dropdown-header-text">Hand & Feet</div>
-                                        <Link :href="route('treatyourself')" class="dropdown-item"><i class="ri-hand-heart-line"></i> Treat Yourself</Link>
-                                        <Link :href="route('spoilyourfeet')" class="dropdown-item"><i class="ri-footprint-line"></i> Spoil Your Feet</Link>
-                                        <Link :href="route('gorgeousnails')" class="dropdown-item"><i class="ri-focus-3-line"></i> Gorgeous Nails</Link>
-                                        <Link :href="route('whatyouknead')" class="dropdown-item"><i class="ri-rest-time-line"></i> What You Knead</Link>
-                                    </div>
-                                    <div class="col-6 p-4">
-                                        <div class="dropdown-header-text">Body & Care</div>
-                                        <Link :href="route('leavemesoft')" class="dropdown-item"><i class="ri-magic-line"></i> Leave Me Soft</Link>
-                                        <Link :href="route('turnbacktime')" class="dropdown-item"><i class="ri-hourglass-2-fill"></i> Turn Back Time</Link>
-                                        <Link :href="route('hairathome')" class="dropdown-item"><i class="ri-scissors-2-fill"></i> Hair At Home</Link>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-
-                        <li class="nav-item">
-                            <Link :href="route('policy')" class="nav-link nav-link-grow" :class="{active: $page.url === '/policy'}">Policy</Link>
-                        </li>
-                        <li class="nav-item">
-                            <Link :href="route('contact')" class="nav-link nav-link-grow" :class="{active: $page.url === '/contact'}">Contact</Link>
-                        </li>
-                    </ul>
-                    
-                    <div class="others-options">
-                        <a href="https://wa.me/97142828385" target="_blank" class="nav-cta-btn">Book Now</a>
-                    </div>
+                <div class="header-right flex-1 d-flex justify-content-end">
+                    <a href="https://wa.me/97142828385" target="_blank" class="whatsapp-nav-link">
+                        <i class="ri-whatsapp-line"></i>
+                        <span class="wa-text">CHAT VIA WHATSAPP</span>
+                    </a>
                 </div>
             </nav>
         </div>
     </div>
 
-    <div class="mobile-sidebar-wrapper d-lg-none" :class="{ 'active': isMobileMenuOpen }">
-        <div class="sidebar-overlay" @click="isMobileMenuOpen = false"></div>
-        <div class="sidebar-content">
-            <div class="sidebar-header d-flex align-items-center justify-content-between p-4">
-                <Link :href="route('home')" @click="isMobileMenuOpen = false">
-                    <img src="/assets/images/logo.png" alt="Logo" class="sidebar-logo">
-                </Link>
-                <button class="close-sidebar-btn" @click="isMobileMenuOpen = false">
-                    <i class="ri-close-line"></i>
-                </button>
-            </div>
-
-            <div class="sidebar-body px-4 pb-5">
-                <nav class="mobile-nav-list">
-                    <Link :href="route('home')" class="m-nav-link" @click="isMobileMenuOpen = false">Home</Link>
-                    <Link :href="route('about')" class="m-nav-link" @click="isMobileMenuOpen = false">About</Link>
-                    
-                    <Link :href="route('transportationfees')" class="m-nav-link" @click="isMobileMenuOpen = false">Transportation</Link>
-                    
-                    <div class="mobile-dropdown-section">
-                        <div class="m-dropdown-trigger d-flex justify-content-between align-items-center" @click="toggleDropdown">
-                            <span>Minimalist & Luxury</span>
-                            <i class="ri-arrow-down-s-line arrow-icon" :class="{ 'rotate': isDropdownOpen }"></i>
-                        </div>
-                        <transition name="slide-fade">
-                            <div class="m-dropdown-items" v-show="isDropdownOpen">
-                                <Link :href="route('treatyourself')" class="m-sub-link" @click="isMobileMenuOpen = false">Treat Yourself</Link>
-                                <Link :href="route('spoilyourfeet')" class="m-sub-link" @click="isMobileMenuOpen = false">Spoil Your Feet</Link>
-                                <Link :href="route('gorgeousnails')" class="m-sub-link" @click="isMobileMenuOpen = false">Gorgeous Nails</Link>
-                                <Link :href="route('leavemesoft')" class="m-sub-link" @click="isMobileMenuOpen = false">Leave Me Soft</Link>
-                                <Link :href="route('whatyouknead')" class="m-sub-link" @click="isMobileMenuOpen = false">What You Knead</Link>
-                                <Link :href="route('turnbacktime')" class="m-sub-link" @click="isMobileMenuOpen = false">Turn Back Time</Link>
-                                <Link :href="route('hairathome')" class="m-sub-link" @click="isMobileMenuOpen = false">Hair At Home</Link>
-                            </div>
-                        </transition>
+    <transition name="menu-anim">
+        <div v-if="isMenuOpen" class="full-menu-overlay">
+            <div class="menu-container row g-0">
+                
+                <div class="col-lg-7 menu-left-panel p-4 p-lg-5">
+                    <div class="menu-header d-flex justify-content-between align-items-center">
+                        <button class="close-btn" @click="isMenuOpen = false">
+                            <i class="ri-close-line"></i> CLOSE
+                        </button>
                     </div>
 
-                    <Link :href="route('policy')" class="m-nav-link" @click="isMobileMenuOpen = false">Policy</Link>
-                    <Link :href="route('contact')" class="m-nav-link" @click="isMobileMenuOpen = false">Contact</Link>
-                </nav>
+                    <div class="menu-content-wrapper mt-4">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <nav class="primary-nav">
+                                    <Link :href="route('home')" class="m-link" @click="isMenuOpen = false">Home</Link>
+                                    <Link :href="route('about')" class="m-link" @click="isMenuOpen = false">About Us</Link>
+                                    <Link :href="route('transportationfees')" class="m-link" @click="isMenuOpen = false">Transport</Link>
+                     
+                                                         <Link :href="route('policy')" class="m-link" @click="isMenuOpen = false">Policy</Link>
+                                                                                             <Link :href="route('contact')" class="m-link" @click="isMenuOpen = false">Contact</Link>
+                                </nav>
+                            </div>
+                            <div class="col-md-6 mt-md-0">
+                                     <nav class="primary-nav">
+                 <Link :href="route('services')" class="m-link" @click="isMenuOpen = false">Services</Link>
+                 <Link :href="route('faq')" class="m-link" @click="isMenuOpen = false">FAQ</Link>
+                 <Link :href="route('brands')" class="m-link" @click="isMenuOpen = false">Brands We Use</Link>
 
-                <div class="mobile-sidebar-footer mt-5">
-                    <a href="https://wa.me/97142828385" target="_blank" class="mobile-book-btn w-100 text-center">
-                        <i class="ri-whatsapp-line me-2"></i> Book Appointment
-                    </a>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-5 menu-right-panel bg-white p-4 p-lg-5 d-none d-lg-flex flex-column justify-content-center">
+                    <div class="info-box">
+              
+                        <a href="tel:+97142828385" class="info-link">Chat Via Whatsapp</a>
+                    </div>
+                    <div class="info-box mt-5">
+                        <span class="info-label">OUR HOURS</span>
+                        <div class="hours-row"><span>Spa</span> <span>10am - 10pm</span></div>
+                        <div class="hours-row"><span>Home Service</span> <span>9am - 9pm</span></div>
+                    </div>
+   
                 </div>
             </div>
         </div>
-    </div>
+    </transition>
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted, watch, computed } from 'vue';
-import { Link, usePage } from '@inertiajs/vue3';
+import { ref, onMounted, onUnmounted } from 'vue';
+import { Link } from '@inertiajs/vue3';
 
-const isMobileMenuOpen = ref(false);
-const isDropdownOpen = ref(false);
+const isMenuOpen = ref(false);
 const isSticky = ref(false);
 
-const toggleDropdown = () => { isDropdownOpen.value = !isDropdownOpen.value; };
 const handleScroll = () => { isSticky.value = window.scrollY > 50; };
-
-const page = usePage();
-const isServiceActive = computed(() => {
-    const urls = ['/treatyourself', '/spoilyourfeet', '/gorgeousnails', '/leavemesoft', '/whatyouknead', '/turnbacktime', '/hairathome'];
-    return urls.some(url => page.url.startsWith(url));
-});
-
 onMounted(() => { window.addEventListener('scroll', handleScroll); });
 onUnmounted(() => { window.removeEventListener('scroll', handleScroll); });
-
-watch(() => page.url, () => {
-    isMobileMenuOpen.value = false;
-    isDropdownOpen.value = false;
-});
 </script>
 
 <style scoped>
-/* DESKTOP STYLES */
-.navbar-area { position: relative; z-index: 9999; transition: 0.4s; padding: 0px 0; }
-.sticky { position: fixed; top: 0; left: 0; width: 100%; background: #fff; box-shadow: 0 10px 30px rgba(0,0,0,0.05); padding: 5px 0; }
-.main-logo { width: 90px; }
-.nav-link-grow { font-weight: 400; color: #333 !important; padding: 25px 15px !important; position: relative; display: block; }
-.nav-link-grow::after { content: ''; position: absolute; width: 0; height: 2px; bottom: 15px; left: 15px; background: #b95c19; transition: 0.3s; }
-.nav-link-grow.active::after, .nav-link-grow:hover::after { width: calc(100% - 30px); }
-.others-options{
-    visibility: visible;
+/* NAVBAR & BURGER STYLE */
+.navbar-area { position: fixed; width: 100%; top: 0; z-index: 1000; transition: 0.4s; padding: 25px 0; }
+.sticky { background: #fff; padding: 12px 0; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+.at-top { background: transparent; }
+
+
+.flex-1 { flex: 1; }
+.main-logo { width: 60px; transition: 0.4s; }
+
+.menu-btn-desktop { 
+    border: none; 
+    display: flex; 
+    align-items: center; 
+    gap: 12px; 
+    color: #51555A;; /* Default for transparent state */
+    cursor: pointer; 
+    padding: 0;
 }
-/* MEGA MENU */
-.custom-dropdown { position: relative; }
-.mega-menu-container { position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(20px); width: 550px; background: #fff; border-radius: 15px; opacity: 0; visibility: hidden; transition: all 0.3s ease; z-index: 10000; pointer-events: none; padding: 10px; }
-.custom-dropdown:hover .mega-menu-container { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); pointer-events: auto; }
-.dropdown-header-text { font-size: 11px; text-transform: uppercase; color: #b95c19; font-weight: 800; letter-spacing: 1px; margin-bottom: 15px; }
-.dropdown-item { display: flex; align-items: center; gap: 10px; padding: 10px 15px; color: #444; font-weight: 500; border-radius: 8px; transition: 0.3s; }
-.dropdown-item:hover { background: #fff5f0; color: #b95c19; padding-left: 20px; }
-.nav-cta-btn { background: #b95c19; color: #fff !important; padding: 12px 25px; border-radius: 50px; font-weight: 700; transition: 0.3s; text-decoration: none; }
+.sticky .menu-btn-desktop { color: #51555A; }
 
-/* MODERN MOBILE SIDEBAR */
-.menu-toggler { background: none; border: none; display: flex; flex-direction: column; gap: 6px; }
-.menu-toggler .bar { width: 28px; height: 2px; background: #333; transition: 0.3s; }
+/* 3-Line Burger Menu icon Styling */
+.burger-icon { display: flex; flex-direction: column; gap: 4px; }
+.line { height: 3px; background: currentColor; transition: 0.3s; }
+.line-1 { width: 22px; }
+.line-2 { width: 16px; }
+.line-3 { width: 22px; }
 
-.mobile-sidebar-wrapper { position: fixed; inset: 0; z-index: 9999; visibility: hidden; transition: 0.4s; }
-.mobile-sidebar-wrapper.active { visibility: visible; }
-.sidebar-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); transition: 0.4s; opacity: 0; }
-.mobile-sidebar-wrapper.active .sidebar-overlay { opacity: 1; }
+.menu-text { font-size: 11px; font-weight: 800; letter-spacing: 2px; }
 
-.sidebar-content { position: absolute; right: -100%; width: 85%; max-width: 350px; height: 100%; background: #fff; transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1); display: flex; flex-direction: column; }
-.mobile-sidebar-wrapper.active .sidebar-content { right: 0; }
+.nav-cta-btn { 
+    background: #b95c19; color: #fff !important; padding: 10px 22px; 
+    font-size: 11px; font-weight: 800; letter-spacing: 1px; text-decoration: none;
+}
 
-.sidebar-logo { width: 110px; }
-.close-sidebar-btn { background: #f5f5f5; border: none; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; color: #333; }
+/* COMPACT OVERLAY */
+.full-menu-overlay { position: fixed; inset: 0; z-index: 2000; background: #fff; }
+.menu-container { height: 100vh; }
 
-.m-nav-link { display: block; padding: 16px 0; font-size: 18px; font-weight: 600; color: #222; border-bottom: 1px solid #f0f0f0; text-decoration: none; }
-.m-dropdown-trigger { padding: 16px 0; font-size: 18px; font-weight: 600; color: #222; border-bottom: 1px solid #f0f0f0; cursor: pointer; }
-.arrow-icon { transition: 0.3s; font-size: 22px; color: #b95c19; }
-.arrow-icon.rotate { transform: rotate(180deg); }
+.menu-left-panel {
+    /* Use your Monstera leaf image here */
+    background: linear-gradient(rgba(0, 0, 0, 0.225), rgba(0, 0, 0, 0.142)), url('/assets/images/megamenu-bg.jpg');
+    background-size: cover; background-position: center; color: #fff;
+}
 
-.m-dropdown-items { padding: 10px 0 10px 15px; background: #fafafa; border-radius: 10px; margin-top: 5px; }
-.m-sub-link { display: block; padding: 12px 0; font-size: 16px; color: #555; text-decoration: none; border-bottom: 1px solid #eee; }
-.m-sub-link:last-child { border-bottom: none; }
+.m-link { 
+    display: block; font-family: 'Playfair Display', serif; font-size: 2rem; 
+    color: #fff; text-decoration: none; margin-bottom: 20px; transition: 0.3s;
+}
+.m-link:hover { padding-left: 10px; color: #b95c19; text-decoration: none; }
 
-.mobile-book-btn { display: block; background: #b95c19; color: #fff; padding: 16px; border-radius: 12px; font-weight: 700; text-decoration: none; font-size: 16px; box-shadow: 0 4px 15px rgba(185, 92, 25, 0.3); }
-.social-links a { width: 45px; height: 45px; border-radius: 50%; background: #f9f9f9; display: flex; align-items: center; justify-content: center; font-size: 20px; color: #333; text-decoration: none; }
+.sub-title { 
+    display: block; color: #b95c19; font-size: 11px; font-weight: 800; 
+    letter-spacing: 3px; margin-bottom: 20px; text-transform: uppercase;
+}
+.s-link { 
+    display: block; color: #fff; font-size: 1.4rem; font-family: 'Playfair Display', serif; 
+    text-decoration: none; margin-bottom: 12px; 
+}
+
+/* RIGHT SIDE INFO */
+.info-label { display: block; font-size: 10px; font-weight: 800; color: #b95c19; letter-spacing: 2px; margin-bottom: 10px; }
+.info-link { font-family: 'Playfair Display', serif; font-size: 22px; color: #333; text-decoration: none; }
+.hours-row { display: flex; justify-content: space-between; font-size: 13px; padding: 8px 0; border-bottom: 1px solid #eee; color: #666; }
+.menu-cta { 
+    background: #333; color: #fff; padding: 15px; text-align: center; 
+    font-size: 12px; font-weight: 800; letter-spacing: 2px; text-decoration: none;
+}
+.close-btn { background: transparent; border: none; color: #fff; font-size: 12px; font-weight: 800; letter-spacing: 2px; cursor: pointer; }
 
 /* ANIMATION */
-.slide-fade-enter-active, .slide-fade-leave-active { transition: all 0.3s ease; max-height: 500px; overflow: hidden; }
-.slide-fade-enter-from, .slide-fade-leave-to { max-height: 0; opacity: 0; }
-.mobile-sidebar-wrapper.active .sidebar-content{
-    overflow: scroll;
+.menu-anim-enter-active, .menu-anim-leave-active { transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+.menu-anim-enter-from, .menu-anim-leave-to { transform: translateY(-100%); }
+
+@media (max-width: 991px) {
+    .m-link { font-size: 1.1rem; margin-bottom: 20px;}
+    .main-logo { width: 40px; }
+  
+     /* Hide text on mobile for cleaner look */
+     .navbar-area{
+        padding: 0px !important;
+        background-color: white !important;
+     }
 }
-.nav-link{
-    text-transform: uppercase;
+/* NEW WHATSAPP NAV LINK STYLING */
+.whatsapp-nav-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none !important;
+    transition: 0.3s;
+    color: #51555A; /* White for top over slider */
+}
+
+.sticky .whatsapp-nav-link {
+    color: #51555A; /* Dark for sticky navbar */
+}
+
+.whatsapp-nav-link i {
+    font-size: 22px;
+    margin-bottom: 2px;
+}
+
+.wa-text {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+.whatsapp-nav-link:hover {
+    color: #25D366 !important; /* WhatsApp Green on hover */
+    transform: translateY(-2px);
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 991px) {
+    .navbar-area { padding: 12px 0; }
+    .main-logo { width: 50px; }
+    
+    .whatsapp-nav-link i { font-size: 18px; }
+    .wa-text { font-size: 8px; letter-spacing: 0.5px; }
 }
 </style>

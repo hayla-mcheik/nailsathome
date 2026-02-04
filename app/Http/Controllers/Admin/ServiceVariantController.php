@@ -25,6 +25,7 @@ class ServiceVariantController extends Controller
             'price'           => 'required|numeric',
             'price_secondary' => 'nullable|numeric',
             'unit'            => 'nullable|string',
+            'description'     => 'nullable|string',
         ]);
 
         $service->variants()->create($data);

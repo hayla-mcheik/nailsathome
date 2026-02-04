@@ -1,65 +1,65 @@
 <template>
     <GuestLayout>
-  <div class="inner-banner">
-            <div class="container-fluid">
-                <div class="row align-items-center">
-                    <div class="col-lg-7 col-md-7">
-                        <div class="inner-title">
-                            <h3>Service Details</h3>
-                            <ul>
-                                <li>
-                                  <Link href="/">Home</Link>
-                                </li>
-                                <li>Service Details</li>
-                            </ul>
-                        </div>
-                    </div>
-
-            
-                </div>
-            </div>
+<div class="inner-banner-minimal pt-100 mt-3 pb-50">     
+             <Breadcrumbs 
+      :title="category.name" 
+      height="50vh" 
+    />      
         </div>
-        <div class="services-details-area ptb-100 bg-[#fafafa]">
-            <div class="container">
-                <div class="section-title text-center mb-50">
-                    <span class="uppercase tracking-widest text-[#b95c19] font-bold text-sm">Service Menu</span>
-                    <h2 class="font-serif text-5xl mt-2">{{ category.name }}</h2>
-                    <div class="lux-line mx-auto mt-3"></div>
-                </div>
 
-                <div class="row justify-content-center">
-                    <div v-for="service in category.services" :key="service.id" class="col-lg-4 col-md-6 mb-4">
-                        <div class="service-card-minimal p-5 border-0 rounded-0 shadow-sm hover:shadow-lg transition bg-white h-100">
-                            
-                            <h3 class="font-bold text-2xl mb-3 text-gray-900 border-bottom pb-2">{{ service.name }}</h3>
-                            
-                            <p v-if="service.description" class="text-gray-500 text-sm mb-4 leading-relaxed italic">
-                                {{ service.description }}
-                            </p>
+        <div class="services-details-area py-5 bg-white">
+            <div class="container px-lg-5">
+                
+                <div v-for="(service, index) in category.services" 
+                     :key="service.id" 
+                     class="service-block-row mb-120">
+                    
+                    <div class="row align-items-start" :class="{ 'flex-row-reverse': index % 2 !== 0 }">
+                        
+                        <div class="col-lg-7 px-lg-5">
+                            <div class="service-text-content">
+                                <div class="service-intro-header mb-5">
+                                    <span class="service-index">{{ String(index + 1).padStart(2, '0') }}</span>
+                                    <h3 class="service-name-title">{{ service.name }}</h3>
+                                    <p v-if="service.description" class="service-description-main">
+                                        {{ service.description }}
+                                    </p>
+                                </div>
 
-                            <div class="variants-list mt-4">
-                                <div v-for="variant in service.variants" :key="variant.id" 
-                                     class="d-flex justify-content-between align-items-baseline mb-3">
-                                    <div class="flex-grow-1 pr-3">
-                                        <div class="font-semibold text-md text-gray-800 uppercase tracking-tight">{{ variant.title }}</div>
-                                        <div v-if="variant.duration" class="text-xs text-gray-400 mt-1 uppercase tracking-wider">
-                                            <i class="ri-time-line"></i> {{ variant.duration }} mins
+                                <div class="treatments-container">
+                                    <div v-for="variant in service.variants" :key="variant.id" class="treatment-entry mb-4">
+                                        <div class="d-flex justify-content-between align-items-baseline mb-1">
+                                            <h4 class="treatment-title">
+                                                {{ variant.title }}
+                                                <span v-if="variant.duration" class="duration-tag">
+                                                    ({{ variant.duration }} MINS)
+                                                </span>
+                                            </h4>
+                                            <span class="treatment-price">{{ variant.price }} AED</span>
                                         </div>
-                                    </div>
-                                    <div class="dots-spacer flex-grow-1 border-bottom border-dotted border-gray-300 mx-2 mb-1"></div>
-                                    <div class="text-[#b95c19] font-bold text-lg">
-                                        ${{ variant.price }}
+                                        
+                                        <p v-if="variant.description" class="treatment-detail-text">
+                                            {{ variant.description }}
+                                        </p>
+                                        
+                                        <div class="booking-cta">
+                                            <a href="https://wa.me/97142828385" target="_blank" class="wa-link">
+                                                Inquire via WhatsApp <i class="ri-whatsapp-line"></i>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="mt-5 text-center">
-                                <a href="https://wa.me/97142828385" target="_blank" 
-                                   class="booking-link text-xs font-bold uppercase tracking-widest text-gray-400 hover:text-[#b95c19] transition">
-                                    Book This Service <i class="ri-arrow-right-line ms-1"></i>
-                                </a>
+                        <div class="col-lg-5 sticky-top-col">
+                            <div class="image-frame">
+                                <img :src="service.image ? `/storage/${service.image}` : '/assets/images/placeholder.jpg'" 
+                                     class="service-feature-img" 
+                                     :alt="service.name">
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -68,7 +68,7 @@
 </template>
 
 <script setup>
-import NavLink from '@/Components/NavLink.vue';
+import Breadcrumbs from '@/Components/Breadcrumbs.vue';
 import GuestLayout from '@/Layouts/GuestLayout.vue';
 import { Link } from '@inertiajs/vue3';
 
@@ -78,37 +78,116 @@ defineProps({
 </script>
 
 <style scoped>
-/* Luxury Typography */
-.font-serif { font-family: 'Cormorant Garamond', serif; }
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;600&display=swap');
 
-.service-card-minimal {
-    border-top: 4px solid #b95c19 !important; /* Elegant top border accent */
-    transition: all 0.4s ease;
+/* ZigZag Desktop Logic */
+@media (min-width: 992px) {
+    .service-block-row:nth-child(even) .row {
+        flex-direction: row-reverse;
+    }
+    /* Image stays in view while scrolling long lists */
+    .sticky-top-col {
+        position: sticky;
+        top: 100px;
+        padding-top: 20px;
+    }
 }
 
-.lux-line {
-    width: 60px;
-    height: 1px;
-    background-color: #b95c19;
+/* Luxury Typography (Small Font Scale) */
+.eyebrow {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 5px;
+    color: #b95c19;
+    text-transform: uppercase;
 }
 
-/* Classic Menu Dots Effect */
-.dots-spacer {
-    height: 1px;
-    border-bottom: 2px dotted #eee !important;
+.display-title {
+    font-size: 0.8;
 }
 
-.booking-link {
+.service-index {
+    font-size: 0.7rem;
+    color: #51555A;
+    font-weight: 600;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.service-name-title {
+    font-size: 0.8rem;
+    color: #51555A;
+}
+
+.service-description-main {
+    font-size: 0.7rem;
+    color: #51555A;
+    margin-top: 15px;
+    border-left: 1px solid #51555A;
+    padding-left: 20px;
+}
+
+/* Treatment Entries */
+.treatment-entry {
+    padding-bottom: 15px;
+    border-bottom: 1px solid #f9f9f9;
+}
+
+.treatment-title {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #51555A;
+}
+
+.duration-tag {
+    font-size: 0.7rem;
+    font-weight: 300;
+    color: #51555A;
+    margin-left: 4px;
+}
+
+.treatment-price {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #51555A;
+}
+
+.treatment-detail-text {
+    font-size: 0.7rem; /* Boutique small text */
+    color: #51555A;
+    font-weight: 300;
+    margin-top: 5px;
+}
+
+.wa-link {
+    font-size: 9px;
+    font-weight: 700;
+    color: #51555A;
+    text-transform: uppercase;
     text-decoration: none;
-    border-bottom: 1px solid transparent;
+    letter-spacing: 1px;
 }
 
-.booking-link:hover {
-    border-bottom: 1px solid #b95c19;
+/* Image Presentation */
+.image-frame {
+    background: #fafafa;
+    padding: 10px;
 }
 
-/* Spacing and Hover */
-.service-card-minimal:hover {
-    transform: translateY(-8px);
+.service-feature-img {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    display: block;
+}
+
+.mb-120 { margin-bottom: 120px; }
+
+@media (max-width: 991px) {
+    .mb-120 { margin-bottom: 80px; }
+    /* Mobile: Image first, then list */
+    .row { flex-direction: column-reverse !important; }
+    .sticky-top-col { margin-bottom: 40px; }
+    .display-title { font-size: 1.1rem; }
 }
 </style>
