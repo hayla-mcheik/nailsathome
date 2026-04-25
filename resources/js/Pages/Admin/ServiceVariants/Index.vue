@@ -39,6 +39,7 @@ const deleteVariant = (id) => {
                 <h3 class="font-bold mb-4">Add Variant</h3>
                 <form @submit.prevent="submit" class="space-y-4">
                     <input v-model="form.title" type="text" placeholder="Title" class="w-full rounded-md border-gray-300" required />
+                    <textarea v-model="form.description" type="text" placeholder="Description" class="w-full rounded-md border-gray-300" required ></textarea>
                     <div class="flex">
                         <input v-model="form.duration" type="number" placeholder="Duration" class="flex-1 rounded-l-md border-gray-300" required />
                         <select v-model="form.unit" class="rounded-r-md border-gray-300 bg-gray-50 border-l-0">
@@ -68,7 +69,7 @@ const deleteVariant = (id) => {
                   
                             <td class="px-6 py-4 text-sm">{{ v.duration }} {{ v.unit }}</td>
                             <td class="px-6 py-4 font-bold text-gray-900">${{ v.price }}</td>
-                                      <td class="px-6 py-4 font-medium">{{ v.description }}</td>
+                        
                             <td class="px-6 py-4 text-right">
                                 <button @click="deleteVariant(v.id)" class="text-red-600">Delete</button>
                             </td>

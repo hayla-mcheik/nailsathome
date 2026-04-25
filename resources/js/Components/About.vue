@@ -4,7 +4,7 @@
         <div class="art-background-layer">
             <div class="large-bg-text">prepare to be pampred</div>
             <svg class="botanical-svg" viewBox="0 0 100 100" fill="none">
-                <path d="M10 80C30 80 80 60 90 10M10 80C40 70 80 40 90 10" stroke="#b95c19" stroke-width="0.2" opacity="0.2"/>
+                <path d="M10 80C30 80 80 60 90 10M10 80C40 70 80 40 90 10" stroke="#D97DA5" stroke-width="0.2" opacity="0.2"/>
             </svg>
         </div>
 
@@ -98,7 +98,7 @@ defineProps({ about: Object });
 }
 
 .display-title {
-    font-size: 26px; /* Reduced for elegance */
+    font-size: 24px; /* Reduced for elegance */
     font-weight: 700;
     color: #51555A;
     text-transform: capitalize;
