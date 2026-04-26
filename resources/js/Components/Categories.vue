@@ -41,7 +41,7 @@
                             <div class="category-info mt-4">
                                 <h3 class="category-title-font">{{ category.name }}</h3>
                                 <div class="explore-row">
-                                    <span class="service-count">{{ category.services?.length || 0 }} Services</span>
+                               
                                     <span class="explore-btn">Discover <i class="ri-add-line"></i></span>
                                 </div>
                             </div>
