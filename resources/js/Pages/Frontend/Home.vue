@@ -7,7 +7,7 @@
 
         <Categories :categories="categories" />
              <VipDiscretion />
-            <Testimonials :testimonials="testimonials" />
+            <!-- <Testimonials :testimonials="testimonials" /> -->
        
         <SpecialOccasion :specialocsasion="specialocsasion" />
         <!-- <InstagramGallery :gallery="gallery" /> -->
