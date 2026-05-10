@@ -3,9 +3,18 @@
     <div class="absolute inset-0 bg-cover bg-center bg-no-repeat z-0" :style="backgroundStyle"></div>
     <div class="absolute inset-0 bg-black/30 z-0"></div>
     
-    <div class="relative d-flex items-center justify-center z-10 w-full container mx-auto text-center">
+    <div class="relative z-10 w-full container mx-auto text-center flex flex-col items-center justify-center">
+      <div class="flex items-center justify-center space-x-2 text-white/80 uppercase tracking-widest text-[10px] mb-4">
+        <Link href="/" class=" text-white hover:text-white transition-colors">Home</Link>
+        <span v-for="(crumb, index) in breadcrumbs" :key="index" class="flex items-center space-x-2">
+          <span>/</span>
+          <Link :href="crumb.path" :class="{'text-white font-bold': index === breadcrumbs.length - 1, 'text-white hover:text-white': index !== breadcrumbs.length - 1}">
+            {{ crumb.label }}
+          </Link>
+        </span>
+      </div>
 
-      <div class="mt-2">
+      <div>
         <h1 class="display-title text-white" v-if="breadcrumbs.length > 0">
           {{ title || breadcrumbs[breadcrumbs.length - 1].label }}
         </h1>
@@ -20,71 +29,40 @@ import { computed } from 'vue';
 import { Link, usePage } from '@inertiajs/vue3';
 
 const page = usePage();
-
 const props = defineProps({
-  backgroundImage: {
-    type: String,
-    default: '/assets/images/breadcrumbsimage.jpg' 
-  },
-  height: {
-    type: String,
-    default: '50vh'
-  },
-  // ADD THIS PROP to accept the category name from the parent
-  title: {
-    type: String,
-    default: null
-  }
+  backgroundImage: { type: String, default: '/assets/images/breadcrumbsimage.jpg' },
+  height: { type: String, default: '50vh' },
+  title: { type: String, default: null }
 });
-
-const getMenuName = (path) => {
-  const menuMap = {
-    '/about': 'Who We Are',
-    '/treatments': 'The Collection',
-    '/policy': 'Spa Policy',
-    '/transportationfees': 'Transportation',
-  };
-
-  // If we are on the current page and a title prop exists, use it
-  if (props.title && page.url.startsWith(path) && page.url === path) {
-    return props.title;
-  }
-
-  return menuMap[path] || toStartCase(path.replace('/', ''));
-};
-
-const toStartCase = (str) => {
-  if (!str) return '';
-  // Clean up IDs from the label (e.g., 'category/4' becomes 'Category')
-  const cleanStr = str.split('/')[0]; 
-  return cleanStr.replace(/-/g, ' ').replace(/\b\w/g, (char) => char.toUpperCase());
-};
 
 const breadcrumbs = computed(() => {
+  // Get segments and remove empty strings
   const pathSegments = page.url.split('?')[0].split('/').filter(Boolean);
-  return pathSegments.reduce((acc, segment, index) => {
+  
+  return pathSegments.map((segment, index) => {
     const path = '/' + pathSegments.slice(0, index + 1).join('/');
     
-    // Logic to replace the ID segment with the actual title
-    let label = getMenuName(path);
+    let label = segment;
+
+    // Logic: If it's the last segment and we passed a title prop (like category name), use it.
+    // Otherwise, clean the URL string.
     if (index === pathSegments.length - 1 && props.title) {
-        label = props.title;
+      label = props.title;
+    } else {
+      label = label.replace(/-/g, ' ');
     }
 
-    acc.push({
+    return {
       label: label,
       path: path,
-    });
-    return acc;
-  }, []);
+    };
+  });
 });
 
-const backgroundStyle = computed(() => {
-  return {
-    backgroundImage: `url('${props.backgroundImage}')`,
-    height: props.height
-  };
-});
+const backgroundStyle = computed(() => ({
+  backgroundImage: `url('${props.backgroundImage}')`,
+  height: props.height
+}));
 </script>
 
 <style scoped>

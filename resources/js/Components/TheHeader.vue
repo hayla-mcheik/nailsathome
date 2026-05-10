@@ -56,7 +56,7 @@
                             <div class="col-md-6 mt-md-0">
                                      <nav class="primary-nav">
                  <Link :href="route('services')" class="m-link" @click="isMenuOpen = false">Services</Link>
-                 <Link :href="route('faq')" class="m-link" @click="isMenuOpen = false">FAQ</Link>
+                 <!-- <Link :href="route('faq')" class="m-link" @click="isMenuOpen = false">FAQ</Link> -->
                  <Link :href="route('brands')" class="m-link" @click="isMenuOpen = false">Brands We Use</Link>
 
                                 </nav>
@@ -72,8 +72,8 @@
                     </div>
                     <div class="info-box mt-5">
                         <span class="info-label">OUR HOURS</span>
-                        <div class="hours-row"><span>Spa</span> <span>10am - 10pm</span></div>
-                        <div class="hours-row"><span>Home Service</span> <span>9am - 9pm</span></div>
+                        <!-- <div class="hours-row"><span>Spa</span> <span>10am - 10pm</span></div> -->
+                        <div class="hours-row"><span>Home Service</span> <span>10am - 10pm</span></div>
                     </div>
    
                 </div>

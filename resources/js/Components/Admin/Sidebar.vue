@@ -123,13 +123,6 @@ Special Occasion
 </NavLink>
 
 
-     <NavLink
-    :href="route('admin.brochure.index')"
-    icon="✨"
-    :active="route().current('admin.brochure.*')"
->
-  Brochure
-</NavLink>
     </nav>
 
     <div class="px-6 py-4 text-[10px] text-gray-500 border-t border-gray-700 bg-[#1a222f]">

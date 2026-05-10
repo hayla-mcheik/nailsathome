@@ -18,20 +18,9 @@
                                 </div>
                                 <div class="hotel-info-content mb-2">
                                     <span class="label">Inquiries:</span>
-                                    <a href="tel:+97145117901" class="footer-link">+971 4 511 7901</a>
+                                    <a href="tel:04 282 8385" class="footer-link">04 282 8385</a>
                                 </div>
-                                <div class="hotel-info-content">
-                                    <span class="label">Email:</span>
-                                    <a href="mailto:heavenlyspa.dubai@westin.com" class="footer-link">heavenlyspa.dubai@westin.com</a>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6 footer-hours-information">
-                                <h4 class="hotel-info-sub-title mb-3" tabindex="0">Hours</h4>
-                                <div class="hour-wrp-info">
-                                    <p class="mb-1">Spa: 10 AM - 10 PM</p>
-                       
-                                </div>
+                    
                             </div>
                         </div>
                     </div>
@@ -42,7 +31,7 @@
                             <li class="mb-2"><Link :href="route('about')" class="nav-link-item">About</Link></li>
                             <li><Link :href="route('contact')" class="nav-link-item">Contact</Link></li>
                         </ul>
-
+<!-- 
                         <div class="social-media d-flex justify-content-lg-end gap-3">
                             <a href="https://facebook.com/westindubai" target="_blank" class="social-icon">
                                 <i class="ri-facebook-fill"></i>
@@ -50,7 +39,7 @@
                             <a href="https://instagram.com/westindubai" target="_blank" class="social-icon">
                                 <i class="ri-instagram-line"></i>
                             </a>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
 
@@ -73,9 +62,7 @@
             <Link :href="route('home')" class="mobile-bar-item">
                 <span>Services</span>
             </Link>
-            <Link :href="route('home')" class="mobile-bar-item">
-                <span>FAQS</span>
-            </Link>
+     
             <a href="https://wa.me/97142828385" target="_blank" class="mobile-bar-item book-now-item">
                 <span>Chat Via Whatsapp</span>
             </a>

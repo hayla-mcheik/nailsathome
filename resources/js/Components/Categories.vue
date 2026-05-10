@@ -40,10 +40,7 @@
                             
                             <div class="category-info mt-4">
                                 <h3 class="category-title-font">{{ category.name }}</h3>
-                                <div class="explore-row">
-                               
-                                    <span class="explore-btn">Discover <i class="ri-add-line"></i></span>
-                                </div>
+                     
                             </div>
                         </div>
                     </Link>

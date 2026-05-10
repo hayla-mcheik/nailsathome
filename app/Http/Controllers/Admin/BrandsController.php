@@ -38,10 +38,14 @@ class BrandsController extends Controller
             ->with('success', 'Brands created successfully.');
     }
 
-    public function edit(Brands $brands)
-    {
-        return Inertia::render('Admin/Brands/Edit', compact('brands'));
-    }
+// app/Http/Controllers/Admin/BrandsController.php
+
+public function edit(Brands $brand) // Change $brands to $brand
+{
+    return Inertia::render('Admin/Brands/Edit', [
+        'brand' => $brand // Send it as 'brand'
+    ]);
+}
 
     public function update(Request $request, Brands $brands)
     {

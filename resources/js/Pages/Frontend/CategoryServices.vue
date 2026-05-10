@@ -42,11 +42,7 @@
                                             {{ variant.description }}
                                         </p>
                                         
-                                        <div class="booking-cta">
-                                            <a href="https://wa.me/97142828385" target="_blank" class="wa-link">
-                                                Inquire via WhatsApp <i class="ri-whatsapp-line"></i>
-                                            </a>
-                                        </div>
+                               
                                     </div>
                                 </div>
                             </div>
