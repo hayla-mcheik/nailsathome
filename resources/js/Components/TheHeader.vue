@@ -20,12 +20,14 @@
                     </Link>
                 </div>
 
-                <div class="header-right flex-1 d-flex justify-content-end">
-                    <a href="https://wa.me/97142828385" target="_blank" class="whatsapp-nav-link">
-                        <i class="ri-whatsapp-line"></i>
-                        <span class="wa-text">CHAT VIA WHATSAPP</span>
-                    </a>
-                </div>
+ <div class="header-right flex-1 d-flex justify-content-end">
+    <a href="https://wa.me/971504552366" target="_blank" class="whatsapp-nav-link text-end">
+        <i class="ri-whatsapp-line"></i>
+        <span class="wa-text">FOR EXCLUSIVE BOOKINGS VIA WHATSAPP<br>050 455 2366</span>
+    </a>
+</div>
+
+
             </nav>
         </div>
     </div>
@@ -68,7 +70,13 @@
                 <div class="col-lg-5 menu-right-panel bg-white p-4 p-lg-5 d-none d-lg-flex flex-column justify-content-center">
                     <div class="info-box">
               
-                        <a href="tel:+97142828385" class="info-link">Chat Via Whatsapp</a>
+                      <div class="header-right flex-1 d-flex justify-content-end">
+    <a href="https://wa.me/971504552366" target="_blank" class="whatsapp-nav-link text-end">
+        <i class="ri-whatsapp-line"></i>
+        <span class="wa-text">FOR EXCLUSIVE BOOKINGS VIA WHATSAPP<br>050 455 2366</span>
+    </a>
+</div>
+
                     </div>
                     <div class="info-box mt-5">
                         <span class="info-label">OUR HOURS</span>

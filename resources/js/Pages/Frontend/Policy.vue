@@ -14,7 +14,7 @@
             <div class="container position-relative z-2">
                 <div class="row mb-5">
                     <div class="col-12 border-bottom-lux pb-4">
-                        <h1 class="display-title-lux mt-2">Nails At Home Policies</h1>
+                        <h1 class="display-title-lux mt-2">Important Client Informations</h1>
                     </div>
                 </div>
 
@@ -58,6 +58,7 @@ defineProps({ policies: Array });
 .policy-area {
     background-color: #fff;
     color: #51555A;
+        font-family: 'Montserrat', sans-serif !important;
 }
 
 /* Header Styling - Reduced Scales */
@@ -65,12 +66,14 @@ defineProps({ policies: Array });
     font-size: 0.7rem;
     font-weight: 700;
     color: #51555A;
+        font-family: 'Montserrat', sans-serif !important;
 }
 
 .display-title-lux {
     font-size: 26px;
     color: #51555A;
     font-weight: 700;
+        font-family: 'Montserrat', sans-serif !important;
 }
 
 .border-bottom-lux {
@@ -86,12 +89,14 @@ defineProps({ policies: Array });
     font-size: 0.8rem;
     font-weight: 700;
     color: #b95c19;
+        font-family: 'Montserrat', sans-serif !important;
 }
 
 .policy-title-lux {
      font-size: 0.8rem;
     font-weight: 700;
     color: #51555A;
+        font-family: 'Montserrat', sans-serif !important;
 }
 
 .policy-content-lux {
@@ -99,6 +104,7 @@ defineProps({ policies: Array });
     color: #666;
     font-weight: 400;
     max-width: 90%;
+        font-family: 'Montserrat', sans-serif !important;
 }
 
 .policy-accent-line {
@@ -114,11 +120,13 @@ defineProps({ policies: Array });
     color: #999;
     text-transform: uppercase;
     font-weight: 700;
+        font-family: 'Montserrat', sans-serif !important;
 }
 
 .brand-signature-small {
     color: #999;
     font-size: 0.7rem;
+        font-family: 'Montserrat', sans-serif !important;
 }
 
 /* Background Watermark */
@@ -134,7 +142,7 @@ defineProps({ policies: Array });
 .z-2 { z-index: 2; }
 
 @media (max-width: 768px) {
-    .display-title-lux { font-size: 1.1rem; }
-    .policy-content-lux { font-size: 0.7rem; max-width: 100%; }
+    .display-title-lux { font-size: 1.1rem;     font-family: 'Montserrat', sans-serif !important; }
+    .policy-content-lux { font-size: 0.7rem; max-width: 100%;    font-family: 'Montserrat', sans-serif !important; }
 }
 </style>

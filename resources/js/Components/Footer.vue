@@ -1,74 +1,66 @@
-
 <template>
     <footer id="note" class="footer-main">
-        <div class="container-fluid py-5">
-            <div class="footer-wrap">
-                <div class="hotel_name text-center mb-5" tabindex="0">
-                    NAILS AT HOME
-                </div>
+        <div class="container py-5">
+            <div class="row justify-center">
+                
+                <div class="col-lg-8 text-center">
+                    <div class="card-content-wrapper">
+                             <div class="brand-stack flex justify-center">
 
-                <div class="row g-4 justify-content-between">
-                    <div class="col-lg-7">
-                        <div class="row g-4">
-                            <div class="col-md-6 footer-con-information">
-                                <h4 class="hotel-info-sub-title mb-3" tabindex="0">Contact Us</h4>
-                                <div class="hotel-address mb-3" tabindex="0">
-                           
-                                    <span class="locality">Dubai, United Arab Emirates</span>
-                                </div>
-                                <div class="hotel-info-content mb-2">
-                                    <span class="label">Inquiries:</span>
-                                    <a href="tel:04 282 8385" class="footer-link">04 282 8385</a>
-                                </div>
-                    
+                        <img src="/assets/images/logo.png" alt="Nails At Home Logo" class="brand-logo-white">
+                    </div>
+                        <h4 class="info-heading mb-3">Where do we go?</h4>
+                        <p class="info-paragraph mb-4">
+                            The Nails At Home service covers all areas within Dubai. To book your exclusive at home appointment, please call 
+                            <a href="tel:042828385" class="card-link">04 282 8385</a> / 
+                            <a href="tel:042980707" class="card-link">04 298 0707</a> 
+                            <span class="d-block mt-1">(10 am - 10 pm / Operating Daily)</span>
+                        </p>
+
+                        <div class="card-meta">
+                            <div class="meta-item">TRN NO: 100359655600003</div>
+                            <div class="meta-item">
+                                <a href="https://www.nailsathome.ae" target="_blank" class="card-link">www.nailsathome.ae</a>
+                            </div>
+                            <div class="meta-item d-flex align-items-center gap-2">
+                                <i class="ri-instagram-line"></i>
+                                <a href="https://instagram.com/nailsathomedubai" target="_blank" class="card-link">Nailsathomedubai</a>
                             </div>
                         </div>
                     </div>
-
-                    <div class="col-lg-3 text-lg-end">
-                        <ul class="footer-nav-links list-unstyled mb-4">
-                            <li class="mb-2"><Link :href="route('home')" class="nav-link-item">Services</Link></li>
-                            <li class="mb-2"><Link :href="route('about')" class="nav-link-item">About</Link></li>
-                            <li><Link :href="route('contact')" class="nav-link-item">Contact</Link></li>
-                        </ul>
-<!-- 
-                        <div class="social-media d-flex justify-content-lg-end gap-3">
-                            <a href="https://facebook.com/westindubai" target="_blank" class="social-icon">
-                                <i class="ri-facebook-fill"></i>
-                            </a>
-                            <a href="https://instagram.com/westindubai" target="_blank" class="social-icon">
-                                <i class="ri-instagram-line"></i>
-                            </a>
-                        </div> -->
-                    </div>
                 </div>
 
-                <div class="footer-bottom mt-5 pt-4 border-top d-flex flex-wrap justify-content-between align-items-center">
-                    <div class="copy-rights" tabindex="0">© 2026 NAILS AT HOME. All Rights Reserved.</div>
-                    <ul class="pop-link-list d-flex gap-3 list-unstyled mb-0">
-                        <li><Link :href="route('transportationfees')" class="pop-nav">Transportation Fees</Link></li>
-                        <li><Link :href="route('policy')" class="pop-nav">Privacy Policy</Link></li>
+              
+            </div>
+
+            <div class="footer-bottom mt-5 pt-4">
+                <div class="d-flex flex-wrap justify-content-between align-items-center gap-3">
+                    <div class="copy-text">© 2026 NAILS AT HOME. All Rights Reserved.</div>
+                    <ul class="policy-links d-flex gap-4 list-unstyled mb-0">
+                        <li><Link :href="route('transportationfees')" class="policy-item">Transportation Fees</Link></li>
+                        <li><Link :href="route('policy')" class="policy-item">Privacy Policy</Link></li>
                     </ul>
-                    <button @click="scrollToTop" class="totop-btn" aria-label="Back to top">
-                        <i class="ri-arrow-up-s-line"></i>
-                    </button>
                 </div>
             </div>
         </div>
+
+        <button @click="scrollToTop" class="totop-btn-fixed" aria-label="Back to top">
+            <i class="ri-arrow-up-s-line"></i>
+        </button>
     </footer>
 
-    <div class="fixed-mobile-bar d-lg-none">
-        <div class="mobile-bar-container">
-            <Link :href="route('home')" class="mobile-bar-item">
-                <span>Services</span>
-            </Link>
-     
-            <a href="https://wa.me/97142828385" target="_blank" class="mobile-bar-item book-now-item">
-                <span>Chat Via Whatsapp</span>
+    <div class="fixed-action-bar d-lg-none">
+        <div class="action-grid">
+            <a href="tel:042980707" class="action-item">
+                <i class="ri-phone-fill"></i> CALL NOW
+            </a>
+            <a href="https://wa.me/971504552366" target="_blank" class="action-item highlight">
+                <i class="ri-whatsapp-line"></i> WHATSAPP
             </a>
         </div>
     </div>
 </template>
+
 <script setup>
 import { Link } from '@inertiajs/vue3';
 
@@ -78,141 +70,142 @@ const scrollToTop = () => {
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400&family=Montserrat:wght@300;400;600&display=swap');
 
 .footer-main {
-    background-color: #fbfbfb;
-    color: #51555A;
+    background-color: #bc9374; /* Warm tan matching the card */
+    color: #ffffff;
     font-family: 'Montserrat', sans-serif;
-    border-top: 1px solid #eee;
+    position: relative;
+    overflow: hidden;
 }
 
-.hotel_name {
+/* Brand Identity Styling */
+.hotel-title-elegant {
     font-family: 'Playfair Display', serif;
-    font-size: 1.4rem;
-    letter-spacing: 3px;
+    font-size: 2.4rem;
+    letter-spacing: 6px;
     text-transform: uppercase;
-    color: #51555A;
-    font-weight: 700;
-}
-.hotel-address span , .hour-wrp-info p{
-       font-size: 0.8rem;
-}
-.hotel-info-sub-title {
-    font-size: 0.8rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: #51555A; /* Brand Accent */
+    line-height: 1.2;
 }
 
-.label {
+.brand-logo-white {
+    max-width: 160px;
+    height: auto;
+    filter: brightness(0) invert(1); /* Ensures logo is white */
+}
+
+/* Info Styling */
+.info-heading {
+    font-family: 'Montserrat', sans-serif;
     font-weight: 600;
-    margin-right: 5px;
-    font-size: 0.8rem;
+    font-size: 1.15rem;
+    letter-spacing: 0.5px;
 }
 
-.footer-link, .nav-link-item, .pop-nav {
-    color: #51555A;
+.info-paragraph {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    font-weight: 300;
+}
+
+.card-meta {
+    font-size: 0.85rem;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+.card-link {
     text-decoration: none;
-  font-size: 0.7rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
     transition: 0.3s;
 }
 
-.footer-link:hover, .nav-link-item:hover, .pop-nav:hover {
-    color: #b95c19;
+.card-link:hover {
+    border-bottom-color: #ffffff;
 }
 
-.social-icon {
-    font-size: 20px;
-    color: #51555A;
-    transition: 0.3s;
-}
-
-.social-icon:hover {
-    color: #b95c19;
-    transform: translateY(-3px);
-}
-
+/* Bottom Bar Styling */
 .footer-bottom {
-    border-top: 1px solid #ececec;
-    font-size: 11px;
-    color: #999;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
-.totop-btn {
-    background: none;
-    border: 1px solid #ddd;
-    width: 40px;
-    height: 40px;
+.policy-item {
+    text-decoration: none;
+    opacity: 0.8;
+}
+
+.policy-item:hover {
+    opacity: 1;
+}
+
+/* Floating Elements */
+.totop-btn-fixed {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    width: 48px;
+    height: 48px;
+    background: #ffffff;
+    color: #bc9374;
+    border: none;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    z-index: 1050;
     cursor: pointer;
-    transition: 0.3s;
+    transition: transform 0.3s ease;
 }
 
-.totop-btn:hover {
-    background: #51555A;
-    color: #fff;
-    border-color: #51555A;
+.totop-btn-fixed:hover {
+    transform: translateY(-5px);
 }
 
-.dev-link {
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: #ccc;
-    text-decoration: none;
-}
-/* FIXED MOBILE BAR STYLING */
-.fixed-mobile-bar {
+/* Mobile Bar Styling */
+.fixed-action-bar {
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color: #ffffff;
-    z-index: 9999;
+    z-index: 1000;
+    background: #ffffff;
+    box-shadow: 0 -5px 15px rgba(0,0,0,0.05);
 }
 
-.mobile-bar-container {
+.action-grid {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 60px; /* Standard height for mobile bars */
+    height: 65px;
 }
 
-.mobile-bar-item {
+.action-item {
     flex: 1;
-    text-align: center;
-    text-decoration: none;
-    color: #51555A;
-    font-family: 'Montserrat', sans-serif;
-  font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 1px;
-    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-
+    gap: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.8rem;
+    color: #bc9374;
+    letter-spacing: 1px;
 }
 
-.mobile-bar-item:last-child {
-    border-right: none;
+.highlight {
+    background-color: #bc9374;
 }
-
-/* Highlighting the "Book Now" equivalent to match the 'CALL' aesthetic in images */
-.book-now-item {
-    background-color: #fbfbfb;
-    color: #b95c19; /* Use brand accent color */
+.meta-item{
+    color: #51555A;
 }
-
-/* Add padding to footer so content isn't hidden behind the fixed bar */
 @media (max-width: 991px) {
-    .footer-main {
-        padding-bottom: 70px; /* More than the bar height */
-    }
+    .footer-main { padding-bottom: 90px; }
+    .totop-btn-fixed { bottom: 85px; right: 20px; width: 40px; height: 40px; }
+    .hotel-title-elegant { font-size: 1.8rem; }
 }
 </style>

@@ -1,158 +1,115 @@
 <template>
-    <div class="about-editorial-root py-5 position-relative overflow-hidden">
-        
-        <div class="art-background-layer">
-            <div class="large-bg-text">prepare to be pampred</div>
-            <svg class="botanical-svg" viewBox="0 0 100 100" fill="none">
-                <path d="M10 80C30 80 80 60 90 10M10 80C40 70 80 40 90 10" stroke="#D97DA5" stroke-width="0.2" opacity="0.2"/>
-            </svg>
-        </div>
+    <div class="about-exact-root py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-10 col-lg-8">
+                    
+                    <div v-for="(section, index) in processedSections" :key="index">
+                        <section class="editorial-section">
+                            <div class="editorial-paragraph">
+                                <p>
+           <span class="first-word">{{ section.firstWord }}</span>
+                                <span class="body-text">{{ section.restOfText }}</span>
+                                </p>
+                     
+                            </div>
+                        </section>
 
-        <div class="wide-content-wrapper px-4 px-md-5 position-relative z-2">
-            
-            <div class="header-minimal mb-4">
-                <span class="eyebrow">Established 2005 / Dubai’s Premier Mobile Spa</span>
-                <h2 class="display-title mt-2">{{ about?.title }}</h2>
- 
-            </div>
+                        <hr v-if="index < processedSections.length - 1" class="section-divider">
+                    </div>
 
-            <div class="description-full-width">
-                <p class="editorial-text" v-html="about?.description"></p>
-            </div>
-
-            <div class="footer-compact mt-5 d-flex align-items-center gap-4">
-                <div class="signature-wrap">
-                    <img src="/assets/images/logo.png" alt="Signature" class="about-sig-logo">
-            
                 </div>
-            
-                <span class="motto mt-4">Nails At Home</span>
             </div>
-            
         </div>
     </div>
 </template>
 
 <script setup>
-defineProps({ about: Object });
+import { computed } from 'vue';
+
+const props = defineProps({
+    about: Object
+});
+
+const processedSections = computed(() => {
+    if (!props.about?.description) return [];
+
+    // Clean text and force "Our" and "We" into new array items
+    let cleanText = props.about.description.replace(/<[^>]*>?/gm, '').trim();
+    let splitText = cleanText
+        .replace(/\b(Our)\b/g, "SPLIT_HERE Our")
+        .replace(/\b(We)\b/g, "SPLIT_HERE We");
+
+    const paragraphs = splitText
+        .split(/SPLIT_HERE|\n\n/)
+        .map(p => p.trim())
+        .filter(text => text.length > 0);
+
+    return paragraphs.map(text => {
+        const words = text.split(/\s+/);
+        return {
+            firstWord: words[0], 
+            restOfText: words.slice(1).join(' ') 
+        };
+    });
+});
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,900;1,400&family=Montserrat:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300&family=Montserrat:wght@300;400&display=swap');
 
-.about-editorial-root {
+.about-exact-root {
     background-color: #ffffff;
-    color: #51555A;
+}
+
+.editorial-section {
+    padding: 10px 0;
+    display: flow-root; /* Fixes container height for floated elements */
+}
+
+.editorial-paragraph {
+    margin: 0;
+    text-align: left;
+}
+
+.first-word {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem; /* Makes it "Greater" */
+    font-weight: 300;
+    color: #7a7571;
+    float: left;
+    /* CRITICAL ALIGNMENT: line-height pulls the word up to the top of the line */
+    line-height: 0.75; 
+    margin-right: 18px;
+  
+}
+
+.body-text {
     font-family: 'Montserrat', sans-serif;
-    width: 100%;
-    min-height: 60vh;
-    display: flex;
-    align-items: center;
-}
-
-/* Background "Polish It" Text Styling */
-.art-background-layer {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    z-index: 1;
-}
-
-.large-bg-text {
-    position: absolute;
-    top: 50%;
-    left: 0%;
-    transform: translateY(-50%);
-    font-family: 'Playfair Display', serif;
-    font-size: 10vw;
-    font-weight: 900;
-    color: #e1b29d14; /* Extremely subtle grey-white */
-    letter-spacing: -5px;
-    line-height: 0.8;
-    white-space: nowrap;
-    z-index: 1;
-}
-
-.botanical-svg {
-    position: absolute;
-    width: 25%;
-    top: 10%;
-    right: -2%;
-    z-index: 1;
-    transform: rotate(-15deg);
-}
-
-/* Content Layout */
-.wide-content-wrapper {
-    width: 100%;
-    z-index: 2;
-}
-
-/* Typography - Small & Refined */
-.eyebrow {
-    font-size: 0.6rem;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    color: #e1b39d;
-    font-weight: 700;
-}
-
-.display-title {
-    font-size: 24px; /* Reduced for elegance */
-    font-weight: 700;
-    color: #51555A;
-    text-transform: capitalize;
-}
-
-.accent-line {
-    width: 40px;
-    height: 1px;
-    background-color: #e1b39d;
-}
-
-.editorial-text {
-    /* Small font size matching footer (approx 13px) */
-    font-size: 0.75rem; 
-    line-height: 2.2;
-    color: #51555A;
+    font-size: 0.9rem;
+    line-height: 1.8; /* Elegant spacing for the paragraphs */
+    color: #7a7571;
     font-weight: 400;
-
-    letter-spacing: 0.4px;
+    letter-spacing: 0.3px;
+    /* This ensures the rest of the text wraps underneath the big word */
+    display: inline;
 }
 
-/* Signature & Logo Styling */
-.about-sig-logo {
-    width: 55px;
-    height: auto;
-    opacity: 0.9;
-}
-
-.sig-font {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.1rem;
-    font-style: italic;
-    color: #1a1a1a;
-}
-
-.dot-divider {
-    width: 4px;
-    height: 4px;
-    background-color: #e1b39d;
-    border-radius: 50%;
-}
-
-.motto {
-    font-size: 9px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: #999;
+.section-divider {
+    border: 0;
+    border-top: 1px solid #eeeeee;
+    margin: 25px 0;
+    clear: both;
 }
 
 @media (max-width: 768px) {
-    .large-bg-text { font-size: 10vw; left: -10%; }
-    .display-title { font-size: 1.1rem; margin-top: 20px !important; }
-    .editorial-text { font-size: 0.7rem; max-width: 100%; }
-    .footer-compact { flex-direction: column; align-items: flex-start; gap: 15px; }
-    .dot-divider { display: none; }
+    .first-word {
+        font-size: 1.5rem;
+        line-height: 0.8;
+        margin-right: 12px;
+    }
+    .body-text {
+        font-size: 0.85rem;
+    }
 }
 </style>

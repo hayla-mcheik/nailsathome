@@ -142,9 +142,9 @@ onUnmounted(() => {
 .brand-title {
     font-family: 'Playfair Display', serif;
     color: #ffffff;
-    font-size: clamp(2rem, 3vw, 3rem);
-    font-weight: 700;
-    line-height: 1;
+    font-size: clamp(3rem, 3vw, 3rem);
+    font-weight: 800;
+
     letter-spacing: 1px;
     text-transform: uppercase;
 }

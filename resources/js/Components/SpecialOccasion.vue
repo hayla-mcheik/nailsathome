@@ -8,7 +8,7 @@
 
         <div class="container-fluid px-lg-5 position-relative z-2">
             <div class="section-header text-center mb-12">
-                <h2 class="display-title mt-2">Special Occasions</h2>
+                <h2 class="display-title mt-2">Private & Special Events</h2>
             </div>
 
             <div class="row g-4 justify-content-center">
@@ -79,10 +79,11 @@
 }
 
 .occ-title {
-    font-size: 0.7rem; /* Small scale for luxury */
+    font-size: 0.8.5rem; /* Small scale for luxury */
     color: #51555A;
     font-weight: 700;
     line-height: 1.4;
+        font-family: 'Montserrat', sans-serif !important;
 }
 
 .occ-description {
@@ -125,6 +126,10 @@
 @media (max-width: 991px) {
     .display-title { font-size: 1.1rem; font-weight: 700; }
     .occ-description { font-size: 0.7rem; }
+}
+.occ-description{
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 0.8rem;
 }
 </style>
 

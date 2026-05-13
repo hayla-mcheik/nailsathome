@@ -19,8 +19,8 @@
                         <div class="col-lg-7 px-lg-5">
                             <div class="service-text-content">
                                 <div class="service-intro-header mb-5">
-                                    <span class="service-index">{{ String(index + 1).padStart(2, '0') }}</span>
-                                    <h3 class="service-name-title">{{ service.name }}</h3>
+                                    <!-- <span class="service-index">{{ String(index + 1).padStart(2, '0') }}</span> -->
+                                    <h3 class="service-name-title text-bold">{{ service.name }}</h3>
                                     <p v-if="service.description" class="service-description-main">
                                         {{ service.description }}
                                     </p>
@@ -35,7 +35,7 @@
                                                     ({{ variant.duration }} MINS)
                                                 </span>
                                             </h4>
-                                            <span class="treatment-price">{{ variant.price }} AED</span>
+                                            <span v-if="variant.price" class="treatment-price">{{ variant.price }} AED</span>
                                         </div>
                                         
                                         <p v-if="variant.description" class="treatment-detail-text">
@@ -185,5 +185,8 @@ defineProps({
     .row { flex-direction: column-reverse !important; }
     .sticky-top-col { margin-bottom: 40px; }
     .display-title { font-size: 1.1rem; }
+}
+.service-name-title{
+    font-weight: 800;
 }
 </style>

@@ -18,7 +18,7 @@
                 <div class="row g-5">
                     <div class="col-lg-4">
                         <div class="sidebar-sticky sticky-top" style="top: 120px;">
-                            <h2 class="script-font mt-2 mb-1">Transportation Fees</h2>
+                            <h2 class="script-font mt-2 mb-1">Areas Transportation Fees</h2>
 
                             <div class="lux-line-gold mb-4"></div>
                             
