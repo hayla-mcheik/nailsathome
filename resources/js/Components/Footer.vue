@@ -12,8 +12,8 @@
                         <h4 class="info-heading mb-3">Where do we go?</h4>
                         <p class="info-paragraph mb-4">
                             The Nails At Home service covers all areas within Dubai. To book your exclusive at home appointment, please call 
-                            <a href="tel:042828385" class="card-link">04 282 8385</a> / 
-                            <a href="tel:042980707" class="card-link">04 298 0707</a> 
+                              <a href="tel:042980707" class="card-link">04 298 0707</a> / 
+                            <a href="tel:042828385" class="card-link">04 282 8385</a>
                             <span class="d-block mt-1">(10 am - 10 pm / Operating Daily)</span>
                         </p>
 
