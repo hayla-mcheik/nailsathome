@@ -13,8 +13,14 @@
 
             <div class="row g-4 justify-content-center">
                 <div v-for="(service, index) in specialocsasion" :key="service.id" class="col-lg-4 col-md-6">
-                    <div class="occasion-card">
-                        <div class="card-inner p-5 text-center d-flex flex-column h-100">
+                    <div class="occasion-card h-100">
+                        <div class="occ-image-wrapper">
+                            <img :src="service.image ? `/storage/${service.image}` : '/assets/images/placeholder.jpg'" 
+                                 :alt="service.title" 
+                                 class="occ-card-img">
+                        </div>
+
+                        <div class="card-inner p-4 text-center d-flex flex-column">
                             <span class="occ-index">/ 0{{ index + 1 }}</span>
                             
                             <h3 class="occ-title mb-3">{{ service.title }}</h3>
@@ -22,8 +28,6 @@
                             <div class="occ-description">
                                 {{ service.description }}
                             </div>
-
-                    
                         </div>
                     </div>
                 </div>
