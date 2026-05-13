@@ -20,7 +20,7 @@
                         <div class="card-meta">
                             <div class="meta-item">TRN NO: 100359655600003</div>
                             <div class="meta-item">
-                                <a href="https://www.nailsathome.ae" target="_blank" class="card-link">www.nailsathome.ae</a>
+                                <a href="https://www.nailsathome.ae" target="_blank" class="card-link">https://nailsathomedubai.com/</a>
                             </div>
                             <div class="meta-item d-flex align-items-center gap-2">
                                 <i class="ri-instagram-line"></i>
