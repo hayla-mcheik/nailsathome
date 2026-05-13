@@ -21,8 +21,7 @@
                         </div>
 
                         <div class="card-inner p-4 text-center d-flex flex-column">
-                            <span class="occ-index">/ 0{{ index + 1 }}</span>
-                            
+                       
                             <h3 class="occ-title mb-3">{{ service.title }}</h3>
                             
                             <div class="occ-description">
