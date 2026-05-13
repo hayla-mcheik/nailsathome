@@ -197,9 +197,7 @@ const scrollToTop = () => {
     letter-spacing: 1px;
 }
 
-.highlight {
-    background-color: #bc9374;
-}
+
 .meta-item{
     color: #51555A;
 }
