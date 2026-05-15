@@ -23,7 +23,7 @@
  <div class="header-right flex-1 d-flex justify-content-end">
     <a href="https://wa.me/971504552366" target="_blank" class="whatsapp-nav-link text-end">
         <i class="ri-whatsapp-line"></i>
-        <span class="wa-text">FOR EXCLUSIVE BOOKINGS VIA WHATSAPP<br>050 455 2366</span>
+        <span class="wa-text">To Book Your Exclusive Appointment Via WhatsApp <br>0504552366</span>
     </a>
 </div>
 
@@ -73,7 +73,7 @@
                       <div class="header-right flex-1 d-flex justify-content-end">
     <a href="https://wa.me/971504552366" target="_blank" class="whatsapp-nav-link text-end">
         <i class="ri-whatsapp-line"></i>
-        <span class="wa-text">FOR EXCLUSIVE BOOKINGS VIA WHATSAPP<br>050 455 2366</span>
+        <span class="wa-text">To Book Your Exclusive Appointment Via WhatsApp<br>050 455 2366</span>
     </a>
 </div>
 

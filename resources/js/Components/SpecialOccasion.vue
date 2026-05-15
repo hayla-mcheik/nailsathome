@@ -24,7 +24,7 @@
                         </div>
 
                         <div class="card-inner p-4 text-center d-flex flex-column">
-                            <span class="occ-index">/ 0{{ index + 1 }}</span>
+               
                             
                             <h3 class="occ-title mb-3">{{ service.title }}</h3>
                             
@@ -54,7 +54,7 @@ defineProps({
 .display-title {
     font-size: 26px;
     text-transform: uppercase;
-    color: #51555A;
+    color: #b95c19;
     font-weight: 700;
     letter-spacing: 2px;
 }
