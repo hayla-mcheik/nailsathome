@@ -141,14 +141,20 @@ public function policy()
         ]);
     }
 
-    public function transportationfees()
-    {
-        return Inertia::render('Frontend/TransportationFees',[
-            'transportation' => \App\Models\TransportationArea::with('fee')
-            ->orderBy('name', 'asc')
-            ->get()
-        ]);
-    }
+public function transportationfees()
+{
+    // We use query() to get a fresh builder, then take(100) to override any limits
+    $data = \App\Models\TransportationArea::query()
+        ->with('fee')
+        ->get();
+
+    // Check if this changes the #items array count
+    // dd($data); 
+
+    return Inertia::render('Frontend/TransportationFees', [
+        'transportation' => $data
+    ]);
+}
     public function contact()
     {
         return Inertia::render('Frontend/Contact');
